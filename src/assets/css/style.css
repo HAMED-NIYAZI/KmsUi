@@ -10,7 +10,7 @@
 --------------------------------------------------------------*/
 @font-face {
   font-family: "Vazirmatn";
-  src: url('../fonts/Vazir/Vazir-Regular.ttf');
+  src: url('../../assets/fonts/Vazir/Vazir-Regular.ttf');
   font-weight: normal;
 }
 
@@ -21,9 +21,10 @@
 body {
   direction: rtl;
   text-align: right;
-  font-family: "Vazirmatn", "Open Sans", sans-serif;
-  background: #f6f9ff;
-  color: #444444;
+  font-family: "Vazirmatn", "Open Sans", sans-serif !important;
+   /*background: #f6f9ff;*/
+   background: #f0f5fd;
+   color: #000000;
 }
 
 a {
