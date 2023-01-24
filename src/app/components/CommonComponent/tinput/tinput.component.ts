@@ -9,7 +9,8 @@ import { Component, Input, OnInit } from '@angular/core';
 export class TinputComponent implements OnInit {
   //@Input() tree:Array<TreeClass>
   //tree: Array<TreeClass> = [];
-
+ngClassParent:string="parent";
+ngClassParentDown:string="parent-down";
 
   constructor(/*tree: Array<TreeClass>*/) {
 
@@ -37,17 +38,21 @@ export class TinputComponent implements OnInit {
 
   }
 
-  ClickOnPlus() {
-    console.log("ClickOnPlus");
-    // var toggler = document.getElementsByClassName("parent");
-    // var i;
+  ClickOnParent(event:any) {
 
-    // for (i = 0; i < toggler.length; i++) {
-    //   toggler[i].addEventListener("click", function () {
-    //     this.parentElement.querySelector(".nested").classList.toggle("active");
-    //     this.classList.toggle("parent-down");
-    //   });
-    // }
+   //  event.srcElement.classList.remove("parent");
+   // event.srcElement.classList.add("parent-down");
+    if(event.srcElement.classList[0]=="parent")
+    {
+  event.srcElement.classList.remove("parent");
+   event.srcElement.classList.add("parent-down");
+    }else   if(event.srcElement.classList[0]=="parent-down")
+    {
+  event.srcElement.classList.remove("parent-down");
+   event.srcElement.classList.add("parent");
+    }
+
+
   }
 
 
