@@ -3,6 +3,16 @@ ul,
   list-style-type: none;
 }
 
+ li{
+ /* display: -ms-flexbox;*/
+    display: list-item; 
+    flex-wrap: wrap; 
+    /* -ms-flex-wrap: wrap;
+        */
+  
+  }
+
+
 
 #myUL {
   margin: 0;
@@ -13,9 +23,19 @@ ul,
   margin-right: 5px;
 }
 
+.ch-margin{
+   padding-top: 2px;
+  vertical-align: text-top;
+
+
+}
+span{
+  position: relative;
+ top: -4px;
+}
 
 .parent {
-  cursor: pointer;
+  /*cursor: pointer;*/
   -webkit-user-select: none;
   /* Safari 3.1+ */
   -moz-user-select: none;
@@ -23,21 +43,34 @@ ul,
   -ms-user-select: none;
   /* IE 10+ */
   user-select: none;
-  margin-right:2px;
-  padding-top: -25px;
-  position: absolute;
-}
-
+  margin-top: 2px;
+  padding-top: -3px;
+  margin-right:  -3px;
+ }
+ .parent-down {
+  /*cursor: pointer;*/
+  -webkit-user-select: none;
+  /* Safari 3.1+ */
+  -moz-user-select: none;
+  /* Firefox 2+ */
+  -ms-user-select: none;
+  /* IE 10+ */
+  user-select: none;
+  margin-top: 2px;
+   }
 .parent::before {
   content: "\229E";
-  color: #646466;
-  display: inline-block;
+  color: #000000;
+  /*display: inline-block;*/
    margin-top: 0px;
+   padding-top: 0px;
+   margin-right:  3px;
 }
 
 .parent-down::before {
-   margin-top: 0px;
-  content: "\229F";
+   content: "\229F";
+  margin-top: -5px;
+
 
 
 }
