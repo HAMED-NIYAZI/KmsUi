@@ -42,14 +42,20 @@ ngClassParentDown:string="parent-down";
 
    //  event.srcElement.classList.remove("parent");
    // event.srcElement.classList.add("parent-down");
+   //console.log(event.nativeElement.nextElementSibling);
+   //console.log(event.srcElement.nextElementSibling);
+   //nativeElement.querySelector('.div1').style.display = 'none';
     if(event.srcElement.classList[0]=="parent")
     {
   event.srcElement.classList.remove("parent");
    event.srcElement.classList.add("parent-down");
+   event.srcElement.nextElementSibling.classList.add("active");
     }else   if(event.srcElement.classList[0]=="parent-down")
     {
   event.srcElement.classList.remove("parent-down");
    event.srcElement.classList.add("parent");
+   event.srcElement.nextElementSibling.classList.remove("active");
+
     }
 
 
