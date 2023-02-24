@@ -7,9 +7,10 @@ ul,
  /* display: -ms-flexbox;*/
     display: list-item; 
     flex-wrap: wrap; 
+    
     /* -ms-flex-wrap: wrap;
         */
-  
+width: max-content;  
   }
 
 
@@ -21,6 +22,7 @@ ul,
 
 .child {
   margin-right: 5px;
+  min-width: 200px !important;
 }
 
 .ch-margin{
@@ -31,6 +33,7 @@ ul,
 }
 span{
   position: relative;
+width: auto;
  top: -4px;
 }
 
@@ -80,5 +83,6 @@ span{
 }
 
 .active {
-  display: block;
+  /* display: block; */
+  display: block !important;
 }
