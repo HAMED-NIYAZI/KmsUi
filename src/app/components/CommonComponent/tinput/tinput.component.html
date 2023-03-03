@@ -1,52 +1,179 @@
- <ul id="myUL" style="direction:rtl;">
-  <li><input type="checkbox" class="ch-margin" /><span class="child">مالی</span> </li>
+<label for="yourUsername" class="form-label">چارت سارمانی</label>
+<div style="direction:rtl;height: 200px !important;width: 300px !important;overflow: scroll;max-width: 1000px;">
 
-  <li> <input type="checkbox" class="ch-margin" /><span class="parent" (click)="ClickOnParent($event)">چارت سازمانی برای xxxxxxxxxxxxxxxxxxxxxxxxxxxبهره‌برداری</span>
-    <ul class="nested">
-      <li><input type="checkbox" class="ch-margin" /> <span class="child">مجمع چارت سازمانی برای  </span> </li>
-      <li><input type="checkbox" class="ch-margin" /> <span class="child"> چارت سازمانی برای هیئت مدیره</span> </li>
-      <li> <input type="checkbox" class="ch-margin" /><span class="parent" (click)="ClickOnParent($event)">مدیریت برنامه ریزی و کنترل</span>
-        <ul class="nested">
-          <li><input type="checkbox" class="ch-margin" /> <span class="child">چارت سازمانی  مدیریت مهندسی طرح ها</span></li>
-          <li><input type="checkbox" class="ch-margin" /> <span class="child"> مدیریت پروژه ها چارت سازمانی  </span></li>
-          <li><input type="checkbox" class="ch-margin"  > <span class="parent"   (click)="ClickOnParent($event)">مشاوران</span>
-            <ul class="nested" >
-              <li><input type="checkbox" class="ch-margin"  ><span class="child">ریاست حراست  مدیریت مهندسی طرح ها </span></li>
-              <li><input type="checkbox" class="ch-margin" /><span class="child">ریاست تحقیق و توسعه</span></li>
-              <li><input type="checkbox" class="ch-margin" /><span class="child">مجمع   مدیریت مهندسی طرح ها</span></li>
-              <li><input type="checkbox" class="ch-margin" /><span class="child">llllllllllllllllllllllllllllllllllll</span></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
+  <ul id="myUL" style="direction:rtl;">
+    <div *ngFor="let L1 of tree">
+      <div *ngIf="L1.nodes.length as value; else elseBlockL1">
+        <!-- Parent L1 -->
 
-    </ul>
-  </li>
+        <li> <input type="checkbox" class="ch-margin form-check-input" /><span class="parent"
+            (click)="ClickOnParent($event)">{{L1.text}}</span>
+          <ul class="nested">
 
-  <li><input type="checkbox" class="ch-margin" /><span class="child">مدیریت برنامه ریزی و کنترل</span> </li>
-  <li><input type="checkbox" class="ch-margin" /><span class="child">ریاست امور حقوقی و قرارداد ها</span></li>
-  <li><input type="checkbox" class="ch-margin" /><span class="child">مدیریت HSEQ</span></li>
+            <div *ngFor="let L2 of L1.nodes">
+              <div *ngIf="L2.nodes.length as value; else elseBlockL2">
+                <li> <input type="checkbox" class="ch-margin form-check-input" /><span class="parent"
+                    (click)="ClickOnParent($event)">{{L2.text}}</span>
+                  <ul class="nested">
+                    <div *ngFor="let L3 of L2.nodes">
+                      <div *ngIf="L3.nodes.length as value; else elseBlockL3">
+                        <li> <input type="checkbox" class="ch-margin form-check-input" /><span class="parent"
+                            (click)="ClickOnParent($event)">{{L3.text}}</span>
+                          <ul class="nested">
+                            <div *ngFor="let L4 of L3.nodes">
+                              <div *ngIf="L4.nodes.length as value; else elseBlockL4">
+                                <li> <input type="checkbox" class="ch-margin form-check-input" /><span class="parent"
+                                    (click)="ClickOnParent($event)">{{L4.text}}</span>
+                                  <ul class="nested">
+                                    <div *ngFor="let L5 of L4.nodes">
+                                      <div *ngIf="L5.nodes.length as value; else elseBlockL5">
+                                        <li> <input type="checkbox" class="ch-margin form-check-input" /><span
+                                            class="parent" (click)="ClickOnParent($event)">{{L5.text}}</span>
+                                          <ul class="nested">
+                                               <div *ngFor="let L6 of L5.nodes">
+                                                <div *ngIf="L6.nodes.length as value; else elseBlockL6">
+                                                  <li> <input type="checkbox" class="ch-margin form-check-input" /><span
+                                                      class="parent" (click)="ClickOnParent($event)">{{L6.text}}</span>
+                                                    <ul class="nested">
 
-  <li> <input type="checkbox" class="ch-margin" /><span class="parent"  (click)="ClickOnParent($event)">بهره‌برداری</span>
-    <ul class="nested">
-      <li><input type="checkbox" class="ch-margin" /> <span class="child">مجمع</span> </li>
-      <li><input type="checkbox" class="ch-margin" /> <span class="child">هیئت مدیره</span> </li>
-      <li> <input type="checkbox" class="ch-margin" /><span class="parent"  (click)="ClickOnParent($event)">مدیریت برنامه ریزی و کنترل</span>
-        <ul class="nested">
-          <li><input type="checkbox" class="ch-margin" /> <span class="child">مدیریت مهندسی طرح ها</span></li>
-          <li><input type="checkbox" class="ch-margin" /> <span class="child">مدیریت پروژه ها</span></li>
-          <li><input type="checkbox" class="ch-margin" /> <span class="parent" (click)="ClickOnParent($event)">مشاوران</span>
-            <ul class="nested">
-              <li><input type="checkbox" class="ch-margin" /><span class="child">ریاست حراست</span></li>
-              <li><input type="checkbox" class="ch-margin" /><span class="child">ریاست تحقیق و توسعه</span></li>
-              <li><input type="checkbox" class="ch-margin" /><span class="child">مجمع</span></li>
-              <li><input type="checkbox" class="ch-margin" /><span class="child">مجمع</span></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
+                                                    </ul>
+                                                  </li>
+                                                </div>
+                                                <ng-template #elseBlockL6>
+                                                  <li>
+                                                    <input type="checkbox" class="ch-margin form-check-input" /><span
+                                                      class="child">{{L6.text}}</span>
+                                                  </li>
+                                                </ng-template>
+                                              </div>
+                                           </ul>
+                                        </li>
+                                      </div>
+                                      <ng-template #elseBlockL5>
+                                        <li>
+                                          <input type="checkbox" class="ch-margin form-check-input" /><span
+                                            class="child">{{L5.text}}</span>
+                                        </li>
+                                      </ng-template>
+                                    </div>
+                                  </ul>
+                                </li>
+                              </div>
+                              <ng-template #elseBlockL4>
+                                <li>
+                                  <input type="checkbox" class="ch-margin form-check-input" /><span
+                                    class="child">{{L4.text}}</span>
+                                </li>
+                              </ng-template>
+                            </div>
+                          </ul>
+                        </li>
+                      </div>
+                      <ng-template #elseBlockL3>
+                        <li>
+                          <input type="checkbox" class="ch-margin form-check-input" /><span
+                            class="child">{{L3.text}}</span>
+                        </li>
+                      </ng-template>
+                    </div>
+                  </ul>
+                </li>
+              </div>
+              <!-- for leaf2 -->
+              <ng-template #elseBlockL2>
+                <li>
+                  <input type="checkbox" class="ch-margin form-check-input" /><span class="child">{{L2.text}}</span>
+                </li>
+              </ng-template>
+            </div>
 
-    </ul>
-  </li>
-</ul>
- 
+          </ul>
+        </li>
+      </div>
+
+
+      <!-- for leaf L1  -->
+      <ng-template #elseBlockL1>
+        <li>
+          <input type="checkbox" class="ch-margin form-check-input" /><span class="child">{{L1.text}}</span>
+        </li>
+      </ng-template>
+
+
+
+
+
+
+
+
+    </div>
+  </ul>
+
+</div>
+<!-- 
+<label for="yourUsername" class="form-label">چارت سارمانی</label>
+<div style="direction:rtl;height: 200px !important;width: 300px !important;overflow: scroll;max-width: 1000px;">
+  <ul id="myUL" style="direction:rtl;">
+    <li><input type="checkbox" class="ch-margin form-check-input" /><span class="child">مالی</span> </li>
+
+    <li> <input type="checkbox" class="ch-margin form-check-input" /><span class="parent" (click)="ClickOnParent($event)">چارت سازمانی
+        برای xxxxxxxxxxxxxxxxxxxxxxxxxxxبهره‌برداری</span>
+      <ul class="nested">
+        <li><input type="checkbox" class="ch-margin form-check-input" /> <span class="child">مجمع چارت سازمانی برای </span> </li>
+        <li><input type="checkbox" class="ch-margin form-check-input" /> <span class="child"> چارت سازمانی برای هیئت مدیره</span> </li>
+        <li> <input type="checkbox" class="ch-margin form-check-input" /><span class="parent" (click)="ClickOnParent($event)">مدیریت
+            برنامه ریزی و کنترل</span>
+          <ul class="nested">
+            <li><input type="checkbox" class="ch-margin form-check-input" /> <span class="child">چارت سازمانی مدیریت مهندسی طرح ها</span>
+            </li>
+            <li><input type="checkbox" class="ch-margin form-check-input" /> <span class="child"> مدیریت پروژه ها چارت سازمانی </span>
+            </li>
+            <li><input type="checkbox" class="ch-margin form-check-input"> <span class="parent"
+                (click)="ClickOnParent($event)">مشاوران</span>
+              <ul class="nested">
+                <li><input type="checkbox" class="ch-margin form-check-input"><span class="child">ریاست حراست مدیریت مهندسی طرح ها
+                  </span></li>
+                <li><input type="checkbox" class="ch-margin form-check-input" /><span class="child">ریاست تحقیق و توسعه</span></li>
+                <li><input type="checkbox" class="ch-margin form-check-input" /><span class="child">مجمع مدیریت مهندسی طرح ها</span></li>
+                <li><input type="checkbox" class="ch-margin form-check-input" /><span
+                    class="child">llllllllllllllllllllllllllllllllllll</span></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+
+      </ul>
+    </li>
+
+    <li><input type="checkbox" class="ch-margin form-check-input" /><span class="child">مدیریت برنامه ریزی و کنترل</span> </li>
+    <li><input type="checkbox" class="ch-margin form-check-input" /><span class="child">ریاست امور حقوقی و قرارداد ها</span></li>
+    <li><input type="checkbox" class="ch-margin form-check-input" /><span class="child">مدیریت HSEQ</span></li>
+
+    <li> <input type="checkbox" class="ch-margin form-check-input" /><span class="parent"
+        (click)="ClickOnParent($event)">بهره‌برداری</span>
+      <ul class="nested">
+        <li><input type="checkbox" class="ch-margin form-check-input" /> <span class="child">مجمع</span> </li>
+        <li><input type="checkbox" class="ch-margin form-check-input" /> <span class="child">هیئت مدیره</span> </li>
+        <li> <input type="checkbox" class="ch-margin form-check-input" /><span class="parent" (click)="ClickOnParent($event)">مدیریت
+            برنامه ریزی و کنترل</span>
+          <ul class="nested">
+            <li><input type="checkbox" class="ch-margin form-check-input" /> <span class="child">مدیریت مهندسی طرح ها</span></li>
+            <li><input type="checkbox" class="ch-margin form-check-input" /> <span class="child">مدیریت پروژه ها</span></li>
+            <li><input type="checkbox" class="ch-margin form-check-input" /> <span class="parent"
+                (click)="ClickOnParent($event)">مشاوران</span>
+              <ul class="nested">
+                <li><input type="checkbox" class="ch-margin form-check-input" /><span class="child">ریاست حراست</span></li>
+                <li><input type="checkbox" class="ch-margin form-check-input" /><span class="child">ریاست تحقیق و توسعه</span></li>
+                <li><input type="checkbox" class="ch-margin form-check-input" /><span class="child">مجمع</span></li>
+                <li><input type="checkbox" class="ch-margin form-check-input" /><span class="child">مجمع</span></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+
+      </ul>
+    </li>
+  </ul>
+</div>
+
+ -->
