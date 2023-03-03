@@ -26,10 +26,9 @@ width: max-content;
 }
 
 .ch-margin{
-   padding-top: 2px;
-  vertical-align: text-top;
-
-
+   vertical-align: text-top;
+   margin-top: 0px;
+ 
 }
 span{
   position: relative;
@@ -49,6 +48,7 @@ width: auto;
   margin-top: 2px;
   padding-top: -3px;
   margin-right:  -3px;
+  cursor: pointer;
  }
  .parent-down {
   /*cursor: pointer;*/
@@ -68,14 +68,13 @@ width: auto;
    margin-top: 0px;
    padding-top: 0px;
    margin-right:  3px;
-}
+ }
 
 .parent-down::before {
    content: "\229F";
   margin-top: -5px;
-
-
-
+  cursor: pointer;
+color: black;
 }
 
 .nested {
@@ -86,3 +85,4 @@ width: auto;
   /* display: block; */
   display: block !important;
 }
+

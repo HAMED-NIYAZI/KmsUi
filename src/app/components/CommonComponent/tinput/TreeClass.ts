@@ -1,6 +1,6 @@
 export class TreeClass {
-  text: string = "";
   id: string = "";
+  text: string = "";
   nodes: Array<TreeClass> = [];
 
   constructor(text: string, id: string, nodes: Array<TreeClass>) {

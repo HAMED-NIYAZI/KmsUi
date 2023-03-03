@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-//import { TreeClass } from './TreeClass';
+import { TreeClass } from './TreeClass';
 
 @Component({
   selector: 'app-tinput',
@@ -7,37 +7,72 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./tinput.component.css']
 })
 export class TinputComponent implements OnInit {
-  //@Input() tree:Array<TreeClass>
-  //tree: Array<TreeClass> = [];
+  // @Input() tree:Array<TreeClass>;
+  tree: Array<TreeClass> = [];
 ngClassParent:string="parent";
 ngClassParentDown:string="parent-down";
 
   constructor(/*tree: Array<TreeClass>*/) {
 
-    // this.tree = [
-    //   new TreeClass("1", "1",
-    //     [
-    //       new TreeClass("23", "23", []),
-    //       new TreeClass("34", "34", []),
-    //       new TreeClass("46", "46", []),
-    //       new TreeClass("47", "47",
-    //       [
-    //         new TreeClass("94", "94", []),
-    //         new TreeClass("884", "884", []),
-    //         new TreeClass("554", "554", []),
-    //       ]),
-    //     ]),
+    this.tree = [
+      new TreeClass("حراست", "1",
+        [
+          new TreeClass("نگهبانی", "23", []),
+          new TreeClass("اداری", "34", []),
+          new TreeClass("مراقبت", "46", []),
+          new TreeClass(" با شرایط و ضوابط موافقم و آن را می پذیرم اطلاعات", "47",
+          [
+            new TreeClass("با شرایط و ضوابط موافقم و آن را می پذیرم اداری", "94", []),
+            new TreeClass("نیروی انسانی", "884", []),
+            new TreeClass("برنامه ریزی", "554", []),
+          ]),
+        ]),
 
-    //   new TreeClass("2", "2", []),
-    //   new TreeClass("3", "3", []),
-    //   new TreeClass("4", "4", []),
-    // ];
+      new TreeClass("مالی", "2", []),
+      new TreeClass("بهره برداری", "3", []),
+      new TreeClass("1خزانه", "4", [
+        new TreeClass("مالی", "2", []),
+        new TreeClass("مالی", "2", []),
+        new TreeClass("2مالی", "2", [
+          new TreeClass("مالی", "2", []),
+          new TreeClass("با شرایط و ضوابط موافقم و آن را می پذیرم مالی", "2", []),
+          new TreeClass("3مالی", "2", [
+            new TreeClass("با شرایط و ضوابط موافقم و آن را می پذیرم مالی", "2", []),
+            new TreeClass("4مالی", "2", [
+              new TreeClass("مالی", "2", []),
+              new TreeClass("مالی", "2", []),
+              new TreeClass("مالی5", "2", [
+                new TreeClass("با شرایط و ضوابط موافقم و آن را می پذیرم مالی", "2", []),
+                new TreeClass("مالی", "2", []),
+                new TreeClass("مالی6", "2", [
+                  new TreeClass("مالی", "2", []),
+                  new TreeClass("7مالی", "2", [
+                    new TreeClass("با شرایط و ضوابط موافقم و آن را می پذیرم مالی", "2", []),
+                    new TreeClass("مالی8", "2", [
+                      new TreeClass("مالی", "2", []),
+                      new TreeClass("مالی9", "2", [
+                        new TreeClass("مالی", "2", []),
+                        new TreeClass("مالی", "2", []),
+                        new TreeClass("مالی10", "2", [])
+                      ])
+                    ])
+                  ]),
+                  new TreeClass("مالی", "2", []),
+                ])
+              ])
+            ]),
+
+          ])
+        ])
+      ]),
+    ];
   }
 
   ngOnInit(): void {
+   }
 
-  }
 
+  //for style
   ClickOnParent(event:any) {
 
    //  event.srcElement.classList.remove("parent");
