@@ -49,6 +49,7 @@ width: auto;
   padding-top: -3px;
   margin-right:  -3px;
   cursor: pointer;
+  border-radius: 0.25em;
  }
  .parent-down {
   /*cursor: pointer;*/
@@ -60,6 +61,7 @@ width: auto;
   /* IE 10+ */
   user-select: none;
   margin-top: 2px;
+  border-radius: 0.25em;
    }
 .parent::before {
   content: "\229E";
@@ -68,6 +70,7 @@ width: auto;
    margin-top: 0px;
    padding-top: 0px;
    margin-right:  3px;
+   border-radius: 0.25em;
  }
 
 .parent-down::before {
@@ -75,6 +78,7 @@ width: auto;
   margin-top: -5px;
   cursor: pointer;
 color: black;
+border-radius: 0.25em;
 }
 
 .nested {
@@ -86,3 +90,27 @@ color: black;
   display: block !important;
 }
 
+i:hover {
+  color: blue;
+ 
+}
+i{
+  font-size: 15px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+ 
+.form-check-input[type=checkbox] {
+    border-color: black;
+}
+
+label{
+  margin-top: 20px;
+}
+.SelectedSpan{
+  background-color: dodgerblue;
+   border-radius: 6px;
+    padding: 2px 5px 2px 5px;
+
+}

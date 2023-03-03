@@ -18,7 +18,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTreeModule } from '@angular/material/tree';
 import { MaterialInstanceModule } from './material.instance.module';
 import { TinputComponent } from './components/CommonComponent/tinput/tinput.component';
-
+ 
 
 @NgModule({
   declarations: [
@@ -32,7 +32,7 @@ import { TinputComponent } from './components/CommonComponent/tinput/tinput.comp
     TreeComponent,
     RegisterRequestComponent,
     TinputComponent,
-  ],
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,

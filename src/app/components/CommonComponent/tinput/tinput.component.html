@@ -1,4 +1,15 @@
-<label for="yourUsername" class="form-label">چارت سارمانی</label>
+<div>
+  <i class="bi bi-recycle" style="margin-right: 5px;cursor: pointer; width: 35px;" (click)="ClearChecks()"></i>
+  <input type="checkbox" class="ch-margin form-check-input" id="All" (change)="CheckAll()"   *ngIf="isMultiSelectable==true"/>
+  <label for="yourUsername" class="form-label">چارت سارمانی
+  </label>
+
+  <span class="SelectedSpan" *ngIf="SelectedList.length==1 && isMultiSelectable==false">{{SelectedList[0].text}}</span>
+  <span class="SelectedSpan" *ngIf="SelectedList.length>0 && isMultiSelectable==true">{{SelectedList.length}} آیتم انتخاب کرده اید.</span>
+
+</div>
+
+
 <div style="direction:rtl;height: 200px !important;width: 300px !important;overflow: scroll;max-width: 1000px;">
 
   <ul id="myUL" style="direction:rtl;">
@@ -6,42 +17,115 @@
       <div *ngIf="L1.nodes.length as value; else elseBlockL1">
         <!-- Parent L1 -->
 
-        <li> <input type="checkbox" class="ch-margin form-check-input" /><span class="parent"
+        <li> <input type="checkbox" class="ch-margin form-check-input" [id]="L1.id" (change)="OnChange(L1.id)" [checked]="L1.isChecked"/><span class="parent"
             (click)="ClickOnParent($event)">{{L1.text}}</span>
           <ul class="nested">
 
             <div *ngFor="let L2 of L1.nodes">
               <div *ngIf="L2.nodes.length as value; else elseBlockL2">
-                <li> <input type="checkbox" class="ch-margin form-check-input" /><span class="parent"
+                <li> <input type="checkbox" class="ch-margin form-check-input" [id]="L2.id" (change)="OnChange(L2.id)" [checked]="L2.isChecked" /><span class="parent"
                     (click)="ClickOnParent($event)">{{L2.text}}</span>
                   <ul class="nested">
                     <div *ngFor="let L3 of L2.nodes">
                       <div *ngIf="L3.nodes.length as value; else elseBlockL3">
-                        <li> <input type="checkbox" class="ch-margin form-check-input" /><span class="parent"
+                        <li> <input type="checkbox" class="ch-margin form-check-input" [id]="L3.id" (change)="OnChange(L3.id)" [checked]="L3.isChecked" /><span class="parent"
                             (click)="ClickOnParent($event)">{{L3.text}}</span>
                           <ul class="nested">
                             <div *ngFor="let L4 of L3.nodes">
                               <div *ngIf="L4.nodes.length as value; else elseBlockL4">
-                                <li> <input type="checkbox" class="ch-margin form-check-input" /><span class="parent"
+                                <li> <input type="checkbox" class="ch-margin form-check-input" [id]="L4.id"  (change)="OnChange(L4.id)" [checked]="L4.isChecked"/><span class="parent"
                                     (click)="ClickOnParent($event)">{{L4.text}}</span>
                                   <ul class="nested">
                                     <div *ngFor="let L5 of L4.nodes">
                                       <div *ngIf="L5.nodes.length as value; else elseBlockL5">
-                                        <li> <input type="checkbox" class="ch-margin form-check-input" /><span
+                                        <li> <input type="checkbox" class="ch-margin form-check-input" [id]="L5.id" (change)="OnChange(L5.id)" [checked]="L5.isChecked"/><span
                                             class="parent" (click)="ClickOnParent($event)">{{L5.text}}</span>
                                           <ul class="nested">
                                                <div *ngFor="let L6 of L5.nodes">
                                                 <div *ngIf="L6.nodes.length as value; else elseBlockL6">
-                                                  <li> <input type="checkbox" class="ch-margin form-check-input" /><span
+                                                  <li> <input type="checkbox" class="ch-margin form-check-input" [id]="L6.id" (change)="OnChange(L6.id)" [checked]="L6.isChecked"/><span
                                                       class="parent" (click)="ClickOnParent($event)">{{L6.text}}</span>
                                                     <ul class="nested">
+                                                      <div *ngFor="let L7 of L6.nodes">
+                                                        <div *ngIf="L7.nodes.length as value; else elseBlockL7">
+                                                          <li> <input type="checkbox" class="ch-margin form-check-input" [id]="L7.id" (change)="OnChange(L7.id)" [checked]="L7.isChecked" /><span
+                                                              class="parent" (click)="ClickOnParent($event)">{{L7.text}}</span>
+                                                            <ul class="nested">
+        
+
+                                                              <div *ngFor="let L8 of L7.nodes">
+                                                                <div *ngIf="L8.nodes.length as value; else elseBlockL8">
+                                                                  <li> <input type="checkbox" class="ch-margin form-check-input" [id]="L8.id"  (change)="OnChange(L8.id)" [checked]="L8.isChecked"/><span
+                                                                      class="parent" (click)="ClickOnParent($event)">{{L8.text}}</span>
+                                                                    <ul class="nested">
+                
+
+                                                                      <div *ngFor="let L9 of L8.nodes">
+                                                                        <div *ngIf="L9.nodes.length as value; else elseBlockL9">
+                                                                          <li> <input type="checkbox" class="ch-margin form-check-input" [id]="L9.id" (change)="OnChange(L9.id)" [checked]="L9.isChecked" /><span
+                                                                              class="parent" (click)="ClickOnParent($event)">{{L9.text}}</span>
+                                                                            <ul class="nested">
+                        
+
+
+                                                                              <div *ngFor="let L10 of L9.nodes">
+                                                                                <div *ngIf="L10.nodes.length as value; else elseBlockL10">
+                                                                                  <li> <input type="checkbox" class="ch-margin form-check-input" [id]="L10.id" (change)="OnChange(L10.id)"  [checked]="L10.isChecked"/><span
+                                                                                      class="parent" (click)="ClickOnParent($event)">{{L10.text}}</span>
+                                                                                    <ul class="nested">
+                                
+                                                                                    </ul>
+                                                                                  </li>
+                                                                                </div>
+                                                                                <ng-template #elseBlockL10>
+                                                                                  <li>
+                                                                                    <input type="checkbox" class="ch-margin form-check-input" [id]="L10.id"  (change)="OnChange(L10.id)" [checked]="L10.isChecked"/><span
+                                                                                      class="child">{{L10.text}}</span>
+                                                                                  </li>
+                                                                                </ng-template>
+                                                                              </div>
+
+                                                                            </ul>
+                                                                          </li>
+                                                                        </div>
+                                                                        <ng-template #elseBlockL9>
+                                                                          <li>
+                                                                            <input type="checkbox" class="ch-margin form-check-input" [id]="L9.id"  (change)="OnChange(L9.id)" [checked]="L9.isChecked"/><span
+                                                                              class="child">{{L9.text}}</span>
+                                                                          </li>
+                                                                        </ng-template>
+                                                                      </div>
+
+
+                                                                    </ul>
+                                                                  </li>
+                                                                </div>
+                                                                <ng-template #elseBlockL8>
+                                                                  <li>
+                                                                    <input type="checkbox" class="ch-margin form-check-input" [id]="L8.id" (change)="OnChange(L8.id)" [checked]="L8.isChecked" /><span
+                                                                      class="child">{{L8.text}}</span>
+                                                                  </li>
+                                                                </ng-template>
+                                                              </div>
+
+                                                            </ul>
+                                                          </li>
+                                                        </div>
+                                                        <ng-template #elseBlockL7>
+                                                          <li>
+                                                            <input type="checkbox" class="ch-margin form-check-input" [id]="L7.id" (change)="OnChange(L7.id)"  [checked]="L7.isChecked"/><span
+                                                              class="child">{{L7.text}}</span>
+                                                          </li>
+                                                        </ng-template>
+                                                      </div>
+
 
                                                     </ul>
                                                   </li>
                                                 </div>
                                                 <ng-template #elseBlockL6>
                                                   <li>
-                                                    <input type="checkbox" class="ch-margin form-check-input" /><span
+                                                    <input type="checkbox" class="ch-margin form-check-input" [id]="L6.id" (change)="OnChange(L6.id)" [checked]="L6.isChecked" /><span
                                                       class="child">{{L6.text}}</span>
                                                   </li>
                                                 </ng-template>
@@ -51,7 +135,7 @@
                                       </div>
                                       <ng-template #elseBlockL5>
                                         <li>
-                                          <input type="checkbox" class="ch-margin form-check-input" /><span
+                                          <input type="checkbox" class="ch-margin form-check-input" [id]="L5.id"  (change)="OnChange(L5.id)" [checked]="L5.isChecked"/><span
                                             class="child">{{L5.text}}</span>
                                         </li>
                                       </ng-template>
@@ -61,7 +145,7 @@
                               </div>
                               <ng-template #elseBlockL4>
                                 <li>
-                                  <input type="checkbox" class="ch-margin form-check-input" /><span
+                                  <input type="checkbox" class="ch-margin form-check-input" [id]="L4.id" (change)="OnChange(L4.id)" [checked]="L4.isChecked" /><span
                                     class="child">{{L4.text}}</span>
                                 </li>
                               </ng-template>
@@ -71,7 +155,7 @@
                       </div>
                       <ng-template #elseBlockL3>
                         <li>
-                          <input type="checkbox" class="ch-margin form-check-input" /><span
+                          <input type="checkbox" class="ch-margin form-check-input" [id]="L3.id" (change)="OnChange(L3.id)" [checked]="L3.isChecked"/><span
                             class="child">{{L3.text}}</span>
                         </li>
                       </ng-template>
@@ -82,7 +166,8 @@
               <!-- for leaf2 -->
               <ng-template #elseBlockL2>
                 <li>
-                  <input type="checkbox" class="ch-margin form-check-input" /><span class="child">{{L2.text}}</span>
+                  <input type="checkbox" class="ch-margin form-check-input" [id]="L2.id" (change)="OnChange(L2.id)" [checked]="L2.isChecked"/>
+                  <span class="child">{{L2.text}}</span>
                 </li>
               </ng-template>
             </div>
@@ -95,7 +180,8 @@
       <!-- for leaf L1  -->
       <ng-template #elseBlockL1>
         <li>
-          <input type="checkbox" class="ch-margin form-check-input" /><span class="child">{{L1.text}}</span>
+          <input type="checkbox" class="ch-margin form-check-input" [id]="L1.id"  (change)="OnChange(L1.id)" [checked]="L1.isChecked" />
+          <span class="child">{{L1.text}}</span>
         </li>
       </ng-template>
 
@@ -114,28 +200,28 @@
 <label for="yourUsername" class="form-label">چارت سارمانی</label>
 <div style="direction:rtl;height: 200px !important;width: 300px !important;overflow: scroll;max-width: 1000px;">
   <ul id="myUL" style="direction:rtl;">
-    <li><input type="checkbox" class="ch-margin form-check-input" /><span class="child">مالی</span> </li>
+    <li><input type="checkbox" class="ch-margin form-check-input" [id]="L1.id"  /><span class="child">مالی</span> </li>
 
-    <li> <input type="checkbox" class="ch-margin form-check-input" /><span class="parent" (click)="ClickOnParent($event)">چارت سازمانی
+    <li> <input type="checkbox" class="ch-margin form-check-input" [id]="L1.id"  /><span class="parent" (click)="ClickOnParent($event)">چارت سازمانی
         برای xxxxxxxxxxxxxxxxxxxxxxxxxxxبهره‌برداری</span>
       <ul class="nested">
-        <li><input type="checkbox" class="ch-margin form-check-input" /> <span class="child">مجمع چارت سازمانی برای </span> </li>
-        <li><input type="checkbox" class="ch-margin form-check-input" /> <span class="child"> چارت سازمانی برای هیئت مدیره</span> </li>
-        <li> <input type="checkbox" class="ch-margin form-check-input" /><span class="parent" (click)="ClickOnParent($event)">مدیریت
+        <li><input type="checkbox" class="ch-margin form-check-input" [id]="L1.id"  /> <span class="child">مجمع چارت سازمانی برای </span> </li>
+        <li><input type="checkbox" class="ch-margin form-check-input" [id]="L1.id"  /> <span class="child"> چارت سازمانی برای هیئت مدیره</span> </li>
+        <li> <input type="checkbox" class="ch-margin form-check-input" [id]="L1.id"  /><span class="parent" (click)="ClickOnParent($event)">مدیریت
             برنامه ریزی و کنترل</span>
           <ul class="nested">
-            <li><input type="checkbox" class="ch-margin form-check-input" /> <span class="child">چارت سازمانی مدیریت مهندسی طرح ها</span>
+            <li><input type="checkbox" class="ch-margin form-check-input" [id]="L1.id"  /> <span class="child">چارت سازمانی مدیریت مهندسی طرح ها</span>
             </li>
-            <li><input type="checkbox" class="ch-margin form-check-input" /> <span class="child"> مدیریت پروژه ها چارت سازمانی </span>
+            <li><input type="checkbox" class="ch-margin form-check-input" [id]="L1.id"  /> <span class="child"> مدیریت پروژه ها چارت سازمانی </span>
             </li>
-            <li><input type="checkbox" class="ch-margin form-check-input"> <span class="parent"
+            <li><input type="checkbox" class="ch-margin form-check-input" [id]="L1.id"> <span class="parent"
                 (click)="ClickOnParent($event)">مشاوران</span>
               <ul class="nested">
-                <li><input type="checkbox" class="ch-margin form-check-input"><span class="child">ریاست حراست مدیریت مهندسی طرح ها
+                <li><input type="checkbox" class="ch-margin form-check-input" [id]="L1.id"><span class="child">ریاست حراست مدیریت مهندسی طرح ها
                   </span></li>
-                <li><input type="checkbox" class="ch-margin form-check-input" /><span class="child">ریاست تحقیق و توسعه</span></li>
-                <li><input type="checkbox" class="ch-margin form-check-input" /><span class="child">مجمع مدیریت مهندسی طرح ها</span></li>
-                <li><input type="checkbox" class="ch-margin form-check-input" /><span
+                <li><input type="checkbox" class="ch-margin form-check-input" [id]="L1.id"  /><span class="child">ریاست تحقیق و توسعه</span></li>
+                <li><input type="checkbox" class="ch-margin form-check-input" [id]="L1.id"  /><span class="child">مجمع مدیریت مهندسی طرح ها</span></li>
+                <li><input type="checkbox" class="ch-margin form-check-input" [id]="L1.id"  /><span
                     class="child">llllllllllllllllllllllllllllllllllll</span></li>
               </ul>
             </li>
@@ -145,27 +231,27 @@
       </ul>
     </li>
 
-    <li><input type="checkbox" class="ch-margin form-check-input" /><span class="child">مدیریت برنامه ریزی و کنترل</span> </li>
-    <li><input type="checkbox" class="ch-margin form-check-input" /><span class="child">ریاست امور حقوقی و قرارداد ها</span></li>
-    <li><input type="checkbox" class="ch-margin form-check-input" /><span class="child">مدیریت HSEQ</span></li>
+    <li><input type="checkbox" class="ch-margin form-check-input" [id]="L1.id"  /><span class="child">مدیریت برنامه ریزی و کنترل</span> </li>
+    <li><input type="checkbox" class="ch-margin form-check-input" [id]="L1.id"  /><span class="child">ریاست امور حقوقی و قرارداد ها</span></li>
+    <li><input type="checkbox" class="ch-margin form-check-input" [id]="L1.id"  /><span class="child">مدیریت HSEQ</span></li>
 
-    <li> <input type="checkbox" class="ch-margin form-check-input" /><span class="parent"
+    <li> <input type="checkbox" class="ch-margin form-check-input" [id]="L1.id"  /><span class="parent"
         (click)="ClickOnParent($event)">بهره‌برداری</span>
       <ul class="nested">
-        <li><input type="checkbox" class="ch-margin form-check-input" /> <span class="child">مجمع</span> </li>
-        <li><input type="checkbox" class="ch-margin form-check-input" /> <span class="child">هیئت مدیره</span> </li>
-        <li> <input type="checkbox" class="ch-margin form-check-input" /><span class="parent" (click)="ClickOnParent($event)">مدیریت
+        <li><input type="checkbox" class="ch-margin form-check-input" [id]="L1.id"  /> <span class="child">مجمع</span> </li>
+        <li><input type="checkbox" class="ch-margin form-check-input" [id]="L1.id"  /> <span class="child">هیئت مدیره</span> </li>
+        <li> <input type="checkbox" class="ch-margin form-check-input" [id]="L1.id"  /><span class="parent" (click)="ClickOnParent($event)">مدیریت
             برنامه ریزی و کنترل</span>
           <ul class="nested">
-            <li><input type="checkbox" class="ch-margin form-check-input" /> <span class="child">مدیریت مهندسی طرح ها</span></li>
-            <li><input type="checkbox" class="ch-margin form-check-input" /> <span class="child">مدیریت پروژه ها</span></li>
-            <li><input type="checkbox" class="ch-margin form-check-input" /> <span class="parent"
+            <li><input type="checkbox" class="ch-margin form-check-input" [id]="L1.id"  /> <span class="child">مدیریت مهندسی طرح ها</span></li>
+            <li><input type="checkbox" class="ch-margin form-check-input" [id]="L1.id"  /> <span class="child">مدیریت پروژه ها</span></li>
+            <li><input type="checkbox" class="ch-margin form-check-input" [id]="L1.id"  /> <span class="parent"
                 (click)="ClickOnParent($event)">مشاوران</span>
               <ul class="nested">
-                <li><input type="checkbox" class="ch-margin form-check-input" /><span class="child">ریاست حراست</span></li>
-                <li><input type="checkbox" class="ch-margin form-check-input" /><span class="child">ریاست تحقیق و توسعه</span></li>
-                <li><input type="checkbox" class="ch-margin form-check-input" /><span class="child">مجمع</span></li>
-                <li><input type="checkbox" class="ch-margin form-check-input" /><span class="child">مجمع</span></li>
+                <li><input type="checkbox" class="ch-margin form-check-input" [id]="L1.id"  /><span class="child">ریاست حراست</span></li>
+                <li><input type="checkbox" class="ch-margin form-check-input" [id]="L1.id"  /><span class="child">ریاست تحقیق و توسعه</span></li>
+                <li><input type="checkbox" class="ch-margin form-check-input" [id]="L1.id"  /><span class="child">مجمع</span></li>
+                <li><input type="checkbox" class="ch-margin form-check-input" [id]="L1.id"  /><span class="child">مجمع</span></li>
               </ul>
             </li>
           </ul>
