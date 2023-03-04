@@ -3,6 +3,17 @@ ul,
   list-style-type: none;
 }
 
+ li{
+ /* display: -ms-flexbox;*/
+    display: list-item; 
+    flex-wrap: wrap; 
+    
+    /* -ms-flex-wrap: wrap;
+        */
+width: max-content;  
+  }
+
+
 
 #myUL {
   margin: 0;
@@ -11,11 +22,22 @@ ul,
 
 .child {
   margin-right: 5px;
+  min-width: 200px !important;
 }
 
+.ch-margin{
+   vertical-align: text-top;
+   margin-top: 0px;
+ 
+}
+span{
+  position: relative;
+width: auto;
+ top: -4px;
+}
 
 .parent {
-  cursor: pointer;
+  /*cursor: pointer;*/
   -webkit-user-select: none;
   /* Safari 3.1+ */
   -moz-user-select: none;
@@ -23,23 +45,40 @@ ul,
   -ms-user-select: none;
   /* IE 10+ */
   user-select: none;
-  margin-right:2px;
-  padding-top: -25px;
-  position: absolute;
-}
-
+  margin-top: 2px;
+  padding-top: -3px;
+  margin-right:  -3px;
+  cursor: pointer;
+  border-radius: 0.25em;
+ }
+ .parent-down {
+  /*cursor: pointer;*/
+  -webkit-user-select: none;
+  /* Safari 3.1+ */
+  -moz-user-select: none;
+  /* Firefox 2+ */
+  -ms-user-select: none;
+  /* IE 10+ */
+  user-select: none;
+  margin-top: 2px;
+  border-radius: 0.25em;
+   }
 .parent::before {
   content: "\229E";
-  color: #646466;
-  display: inline-block;
+  color: #000000;
+  /*display: inline-block;*/
    margin-top: 0px;
-}
+   padding-top: 0px;
+   margin-right:  3px;
+   border-radius: 0.25em;
+ }
 
 .parent-down::before {
-   margin-top: 0px;
-  content: "\229F";
-
-
+   content: "\229F";
+  margin-top: -5px;
+  cursor: pointer;
+color: black;
+border-radius: 0.25em;
 }
 
 .nested {
@@ -47,5 +86,31 @@ ul,
 }
 
 .active {
-  display: block;
+  /* display: block; */
+  display: block !important;
+}
+
+i:hover {
+  color: blue;
+ 
+}
+i{
+  font-size: 15px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+ 
+.form-check-input[type=checkbox] {
+    border-color: black;
+}
+
+label{
+  margin-top: 20px;
+}
+.SelectedSpan{
+  background-color: dodgerblue;
+   border-radius: 6px;
+    padding: 2px 5px 2px 5px;
+
 }
