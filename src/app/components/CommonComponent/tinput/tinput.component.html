@@ -1,11 +1,13 @@
 <div>
   <i class="bi bi-recycle" style="margin-right: 5px;cursor: pointer; width: 35px;" (click)="ClearChecks()"></i>
-  <input type="checkbox" class="ch-margin form-check-input" id="All" (change)="CheckAll()"   *ngIf="isMultiSelectable==true"/>
-  <label for="yourUsername" class="form-label">چارت سارمانی
+
+  <label for="yourUsername" class="form-label">
+    <input type="checkbox" class="checkboxAll form-check-input " id="All" (change)="CheckAll()"   *ngIf="isMultiSelectable==true"/>
+    چارت سارمانی
   </label>
 
-  <span class="SelectedSpan" *ngIf="SelectedList.length==1 && isMultiSelectable==false">{{SelectedList[0].text}}</span>
-  <span class="SelectedSpan" *ngIf="SelectedList.length>0 && isMultiSelectable==true">{{SelectedList.length}} آیتم انتخاب کرده اید.</span>
+  <label class="SelectedLabel" *ngIf="SelectedList.length==1 && isMultiSelectable==false">{{SelectedList[0].text}}</label>
+  <label class="SelectedLabel" *ngIf="SelectedList.length!=0 && isMultiSelectable==true">{{SelectedList.length}} آیتم انتخاب کرده اید.</label>
 
 </div>
 
