@@ -98,7 +98,7 @@ export class TinputComponent implements OnInit {
 
   //clear all chboxes clear SelectedList and set  SelectedList(id) and chboxes to its value
   ClearChecksExeptThisId(id: string) {
-
+debugger;
     this.SelectedList =[];//todo
     this.FindAllIds(this.tree);
 
@@ -108,7 +108,8 @@ export class TinputComponent implements OnInit {
       });
       const ch = document.getElementById(id) as HTMLInputElement;
       ch.checked = true;
-      this.FindInTree2(this.tree,id);
+      //this.SelectedList.push();
+      this.FindInTree3(this.tree,id);
  
     
 
@@ -159,14 +160,36 @@ export class TinputComponent implements OnInit {
     arr.forEach(element => {
       if (element.id == id) {
         //if(this.SelectedList.find(t=>t.id!=id))   
-        this.SelectedList = this.SelectedList.filter(t => t.id != id);
-        this.SelectedList.push(element);
+ this.SelectedList = this.SelectedList.filter(t => t.id != id);
+         this.SelectedList.push(element);
 
       }
       else if (element.nodes.length != 0) {
 
         element.nodes.forEach(e => {
           this.FindInTree2(element.nodes, id);
+
+        });
+      }
+    });
+  }
+
+  
+  FindInTree3(arr: Array<TreeClass>, id: any): any {
+
+    arr.forEach(element => {
+      if (element.id == id) {
+        //if(this.SelectedList.find(t=>t.id!=id))   
+        ////this.SelectedList = this.SelectedList.filter(t => t.id != id);
+        this.SelectedList=[];
+        this.SelectedList.push(element);
+        return;
+
+      }
+      else if (element.nodes.length != 0) {
+
+        element.nodes.forEach(e => {
+          this.FindInTree3(e.nodes, id);
 
         });
       }

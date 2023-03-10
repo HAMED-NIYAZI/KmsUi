@@ -18,6 +18,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTreeModule } from '@angular/material/tree';
 import { MaterialInstanceModule } from './material.instance.module';
 import { TinputComponent } from './components/CommonComponent/tinput/tinput.component';
+import { OrganizationComponent } from './components/organization/organization.component';
+import { MainContentComponent } from './components/main-content/main-content.component';
  
 
 @NgModule({
@@ -32,6 +34,8 @@ import { TinputComponent } from './components/CommonComponent/tinput/tinput.comp
     TreeComponent,
     RegisterRequestComponent,
     TinputComponent,
+    OrganizationComponent,
+    MainContentComponent,
    ],
   imports: [
     BrowserModule,
