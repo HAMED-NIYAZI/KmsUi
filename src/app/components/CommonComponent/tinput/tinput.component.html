@@ -2,10 +2,10 @@
 
 
 <div style="direction:rtl;height: 200px !important;width: 100% !important;overflow: scroll;max-width: 1000px;border: rgb(219, 219, 222) 1px solid; border-radius: 8px;padding: 0px 8px 8px 8px;">
-  <div style="padding-bottom: 10px;"> 
-    <i class="bi bi-recycle" style="margin-right: 5px;cursor: pointer; width: 35px;" (click)="ClearChecks()"></i>
+  <div style="padding-bottom: 50px;height: 35px;"> 
+    <i class="bi bi-recycle" style="margin:0px 0px 15px 5px;cursor: pointer; height: 15px;" (click)="ClearChecks()"></i>
   
-    <label for="yourUsername" class="form-label">
+    <label for="yourUsername" class="form-label" style="height: 15px;">
       <input type="checkbox" class="checkboxAll form-check-input " id="All" (change)="CheckAll()"   *ngIf="isMultiSelectable==true"/>
       <!-- چارت سارمانی -->
     </label>

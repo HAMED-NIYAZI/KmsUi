@@ -13,7 +13,7 @@ export class TinputComponent implements OnInit {
   @Input() isMultiSelectable!: boolean;
   tree: Array<TreeClass> = [];
   SelectedList: Array<TreeClass> = [];
-  AllIds:Array<string>=[];
+  AllIds: Array<string> = [];
   ngClassParent: string = "parent";
   ngClassParentDown: string = "parent-down";
 
@@ -66,8 +66,7 @@ export class TinputComponent implements OnInit {
   }
 
   OnChange(id: string): void {
-    debugger;
-    if (this.isMultiSelectable == false) {
+     if (this.isMultiSelectable == false) {
       this.ClearChecksExeptThisId(id);
 
     } else if (this.isMultiSelectable == true) {
@@ -98,20 +97,25 @@ export class TinputComponent implements OnInit {
 
   //clear all chboxes clear SelectedList and set  SelectedList(id) and chboxes to its value
   ClearChecksExeptThisId(id: string) {
-debugger;
-    this.SelectedList =[];//todo
+    this.SelectedList = [];//todo
     this.FindAllIds(this.tree);
 
-      this.AllIds.forEach(id => {
-        const ch = document.getElementById(id) as HTMLInputElement;
+    this.AllIds.forEach(i => {
+      if (i != id) {
+        const ch = document.getElementById(i) as HTMLInputElement;
         ch.checked = false;
-      });
-      const ch = document.getElementById(id) as HTMLInputElement;
-      ch.checked = true;
-      //this.SelectedList.push();
-      this.FindInTree3(this.tree,id);
- 
+      }
+
+    });
+    debugger;
+
+    const ch = document.getElementById(id) as HTMLInputElement;
+    if (ch.checked == true) { this.FindInTree3(this.tree, id);}  
+
+    //this.SelectedList.push();
     
+
+
 
     // const all = document.querySelectorAll("input");
     // this.SelectedList = [];
@@ -160,8 +164,8 @@ debugger;
     arr.forEach(element => {
       if (element.id == id) {
         //if(this.SelectedList.find(t=>t.id!=id))   
- this.SelectedList = this.SelectedList.filter(t => t.id != id);
-         this.SelectedList.push(element);
+        this.SelectedList = this.SelectedList.filter(t => t.id != id);
+        this.SelectedList.push(element);
 
       }
       else if (element.nodes.length != 0) {
@@ -174,14 +178,14 @@ debugger;
     });
   }
 
-  
+
   FindInTree3(arr: Array<TreeClass>, id: any): any {
 
     arr.forEach(element => {
       if (element.id == id) {
         //if(this.SelectedList.find(t=>t.id!=id))   
         ////this.SelectedList = this.SelectedList.filter(t => t.id != id);
-        this.SelectedList=[];
+        this.SelectedList = [];
         this.SelectedList.push(element);
         return;
 
@@ -197,42 +201,40 @@ debugger;
   }
 
 
-  CheckAll():void { 
-     const checkAllCheckBox=document.getElementById("All") as HTMLInputElement;
-    this.SelectedList =[];//todo
+  CheckAll(): void {
+    const checkAllCheckBox = document.getElementById("All") as HTMLInputElement;
+    this.SelectedList = [];//todo
     this.FindAllIds(this.tree);
-    if(checkAllCheckBox.checked==true)
-    {
+    if (checkAllCheckBox.checked == true) {
       this.AllIds.forEach(id => {
         const ch = document.getElementById(id) as HTMLInputElement;
         ch.checked = true;
       });
-    
 
- 
+
+
     }
-    else{
-        this.AllIds.forEach(id => {
+    else {
+      this.AllIds.forEach(id => {
         const ch = document.getElementById(id) as HTMLInputElement;
         ch.checked = false;
-        this.SelectedList =[];//todo
+        this.SelectedList = [];//todo
 
       });
-     
+
     }
 
-       
- 
+
+
   }
 
-  FindAllIds(arr: Array<TreeClass>):void
-  {
-    
-    arr.forEach(element => {
-        this.AllIds.push(element.id)
-        this.SelectedList.push(element);
+  FindAllIds(arr: Array<TreeClass>): void {
 
-        if (element.nodes.length != 0) {
+    arr.forEach(element => {
+      this.AllIds.push(element.id)
+      this.SelectedList.push(element);
+
+      if (element.nodes.length != 0) {
 
         element.nodes.forEach(e => {
           this.FindAllIds(element.nodes);
