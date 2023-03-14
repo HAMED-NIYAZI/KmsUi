@@ -1,5 +1,6 @@
+import { CdkStepperModule } from '@angular/cdk/stepper';
 import { IfStmt } from '@angular/compiler';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { TreeClass } from './TreeClass';
 
 @Component({
@@ -11,6 +12,10 @@ import { TreeClass } from './TreeClass';
 export class TinputComponent implements OnInit {
   // @Input() tree:Array<TreeClass>;
   @Input() isMultiSelectable!: boolean;
+
+  @Output() ids = new EventEmitter();
+  @Output() id =new EventEmitter();
+
   tree: Array<TreeClass> = [];
   SelectedList: Array<TreeClass> = [];
   AllIds: Array<string> = [];
@@ -20,21 +25,21 @@ export class TinputComponent implements OnInit {
   constructor() {
     this.isMultiSelectable == false
     this.tree = [
-      new TreeClass("حراست", "L1-1", false,
+      new TreeClass("حراست", "2AA4696D-4403-4403-4403-01881BB815B6", false,
         [
-          new TreeClass("نگهبانی", "L2-1", false, []),
-          new TreeClass("اداری", "L2-2", false, []),
-          new TreeClass("مراقبت", "L3-3", false, []),
-          new TreeClass(" با شرایط و ضوابط موافقم و آن را می پذیرم اطلاعات", "L4-1", false,
+          new TreeClass("نگهبانی", "2AA4696D-4403-4403-4403-01881BB815B6", false, []),
+          new TreeClass("اداری", "2AA4696D-4403-4403-4403-01881BB815B6", false, []),
+          new TreeClass("مراقبت", "2AA4696D-4403-4403-4403-01881BB815B6", false, []),
+          new TreeClass(" با شرایط و ضوابط موافقم و آن را می پذیرم اطلاعات", "2AA4696D-4403-4403-4403-01881BB815B6", false,
             [
-              new TreeClass("با شرایط و ضوابط موافقم و آن را می پذیرم اداری", "L4-2", false, []),
-              new TreeClass("نیروی انسانی", "L4-3", false, []),
-              new TreeClass("برنامه ریزی", "L4-4", false, []),
+              new TreeClass("با شرایط و ضوابط موافقم و آن را می پذیرم اداری", "2AA4696D-4403-4403-4403-01881BB815B6", false, []),
+              new TreeClass("نیروی انسانی", "2AA4696D-4403-4403-4403-01881BB815B6", false, []),
+              new TreeClass("برنامه ریزی", "2AA4696D-4403-4403-4403-01881BB815B6", false, []),
             ]),
         ]),
 
-      new TreeClass("مالی", "L1-2", false, []),
-      new TreeClass("بهره برداری", "L1-3", false, [])
+      new TreeClass("مالی", "2AA4696D-4403-4403-4403-01881BB815B6", false, []),
+      new TreeClass("بهره برداری", "2AA4696D-4403-4403-4403-01881BB815B6", false, [])
 
 
 
@@ -68,6 +73,7 @@ export class TinputComponent implements OnInit {
   OnChange(id: string): void {
      if (this.isMultiSelectable == false) {
       this.ClearChecksExeptThisId(id);
+      this.returnId();//call emmiter for parent
 
     } else if (this.isMultiSelectable == true) {
       let find = this.SelectedList.find(obj => obj.id == id);
@@ -80,10 +86,14 @@ export class TinputComponent implements OnInit {
       else {
         this.SelectedList = this.SelectedList.filter(obj => obj.id !== id);
       }
+
+      this.returnIds();//call emmiter for parent
     }
 
 
     // console.log(this.SelectedList.length,this.SelectedList )
+ 
+  
   }
 
   ClearChecks() {
@@ -246,5 +256,15 @@ export class TinputComponent implements OnInit {
 
   }
 
+
+  returnId():any
+  {
+   return this.id.emit(this.AllIds==null ? null:this.AllIds[0]);
+  }
+
+  returnIds():any
+  {
+    return this.id.emit(this.AllIds);
+  }
 
 }

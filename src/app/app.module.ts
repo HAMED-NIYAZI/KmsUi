@@ -20,7 +20,9 @@ import { MaterialInstanceModule } from './material.instance.module';
 import { TinputComponent } from './components/CommonComponent/tinput/tinput.component';
 import { OrganizationComponent } from './components/organization/organization.component';
 import { MainContentComponent } from './components/main-content/main-content.component';
- 
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -46,8 +48,12 @@ import { MainContentComponent } from './components/main-content/main-content.com
     MatInputModule,
     MatTreeModule,
     MaterialInstanceModule,
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+ 

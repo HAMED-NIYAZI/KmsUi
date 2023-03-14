@@ -7,3 +7,7 @@ body {
   margin: 0;
   font-family: "Vazirmatn", "Open Sans", sans-serif;
  }
+
+ .zoom90{
+  zoom:0.80;
+ }
