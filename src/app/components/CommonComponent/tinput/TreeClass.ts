@@ -10,7 +10,6 @@ export class TreeClass {
     this.isChecked=isChecked;
     this.nodes = nodes;
   }
-
 }
 
 
