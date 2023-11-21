@@ -6,10 +6,11 @@
         <div class="row justify-content-center">
           <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
-            <div class="d-flex justify-content-center py-4">
-              <a href="index.html" class="logo d-flex align-items-center w-auto">
+            <div class="d-flex justify-content-center py-4 logomarlgin">
+              <a href="index.html" class="logo d-flex align-items-center w-auto ">
                 <img src="assets/img/logo.png" alt="">
-                <span class="d-none d-lg-block">NiceAdmin</span>
+                <span class="spanTitleLogo" *ngIf='this.loginPageModel.title!=null'>{{this.loginPageModel.title}}</span>
+                <span class="spanTitleLogo" *ngIf="!this.loginPageModel || !this.loginPageModel.title">نرم افزار مدیریت دانش</span>
               </a>
             </div><!-- End Logo -->
 
@@ -18,7 +19,7 @@
               <div class="card-body">
 
                 <div class="pt-4 pb-2">
-                  <h5 class="card-title text-center pb-0 fs-4">ورود به سامانه</h5>
+                  <h5 class="card-title text-center pb-0 fs-4 ">ورود به سامانه</h5>
                   <p class="text-center small">جهت ورود، نام کاربری و گذر واژه خود را وارد کنید</p>
                 </div>
 
@@ -46,10 +47,10 @@
                     </div>
                   </div>
                   <div class="col-12">
-                    <button class="btn btn-primary w-100" type="submit">ورود</button>
+                    <button class="btn btn-primary w-100 btnloginmargin" type="submit">ورود</button>
                   </div>
-                  <div class="col-12">
-                    <p class="small mb-0">حساب کاربری ندارید؟ <a href="pages-register.html">یک حساب کاربری ایجاد
+                  <div class="col-12" >
+                    <p class="small mb-0 hesabkarbarimargin">حساب کاربری ندارید؟ <a href="pages-register.html">یک حساب کاربری ایجاد
                         کنید</a></p>
                   </div>
                 </form>
@@ -59,7 +60,7 @@
 
             </div>
 
-            <div class="credits">
+            <div class="credits designermargin">
               <!-- All the links in the footer should remain intact. -->
               <!-- You can delete the links only if you purchased the pro version. -->
               <!-- Licensing information: https://bootstrapmade.com/license/ -->

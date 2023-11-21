@@ -10,14 +10,13 @@ import { OrganizationComponent } from './components/organization/organization.co
 import { MainContentComponent } from './components/main-content/main-content.component';
 
 const routes: Routes = [
-  { path: '', canActivate: [AuthGuard], component: MainlayoutComponent, pathMatch: 'full', },
+ // { path: '', canActivate: [AuthGuard], component: MainlayoutComponent, pathMatch: 'full', },
   { path: 'login', component: LoginComponent },
   { path: 'register-request', component: RegisterRequestComponent },
  
   
   //Main Page Route
-  {
-    path: '', canActivate: [AuthGuard], component: MainlayoutComponent, data: { title: 'صفحه اصلی' },
+  { path: '', canActivate: [AuthGuard], component: MainlayoutComponent, data: { title: 'صفحه اصلی' },
     children: [
       { path: '', component: MainContentComponent },
       { path: 'home', component: MainContentComponent },
@@ -25,7 +24,8 @@ const routes: Routes = [
 
     ],
   },
-  { path: '**', component: NotfoundpageComponent },
+
+  { path: '**', canActivate: [AuthGuard],   component: NotfoundpageComponent },
 
 
 

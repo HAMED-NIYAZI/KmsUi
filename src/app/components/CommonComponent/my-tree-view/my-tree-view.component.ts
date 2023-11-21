@@ -1,50 +1,34 @@
 import { CdkStepperModule } from '@angular/cdk/stepper';
 import { IfStmt } from '@angular/compiler';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { TreeClass } from './TreeClass';
+import { MyTreeViewModel } from 'src/app/Models/MyTreeViewModel';
 
 @Component({
-  selector: 'app-tinput',
-  templateUrl: './tinput.component.html',
-  styleUrls: ['./tinput.component.css']
+  selector: 'app-my-tree-view',
+  templateUrl: './my-tree-view.component.html',
+  styleUrls: ['./my-tree-view.component.css']
 })
+  
+ 
 
-export class TinputComponent implements OnInit {
+ 
+
+export class MyTreeViewComponent implements OnInit {
   // @Input() tree:Array<TreeClass>;
   @Input() isMultiSelectable!: boolean;
 
   @Output() ids = new EventEmitter();
   @Output() id =new EventEmitter();
 
-  tree: Array<TreeClass> = [];
-  SelectedList: Array<TreeClass> = [];
+  tree: Array<MyTreeViewModel> = this.GetData();
+  SelectedList: Array<MyTreeViewModel> = [];
   AllIds: Array<string> = [];
   ngClassParent: string = "parent";
   ngClassParentDown: string = "parent-down";
 
   constructor() {
-    debugger;
+    console.log("constructor");
     this.isMultiSelectable == false
-    this.tree = [
-      new TreeClass("حراست", "2AA4696D-4403-4403-4403-01881BB815B6", false,
-        [
-          new TreeClass("نگهبانی", "2AA4696D-4403-4403-4403-01881BB815B6", false, []),
-          new TreeClass("اداری", "2AA4696D-4403-4403-4403-01881BB815B6", false, []),
-          new TreeClass("مراقبت", "2AA4696D-4403-4403-4403-01881BB815B6", false, []),
-          new TreeClass(" با شرایط و ضوابط موافقم و آن را می پذیرم اطلاعات", "2AA4696D-4403-4403-4403-01881BB815B6", false,
-            [
-              new TreeClass("با شرایط و ضوابط موافقم و آن را می پذیرم اداری", "2AA4696D-4403-4403-4403-01881BB815B6", false, []),
-              new TreeClass("نیروی انسانی", "2AA4696D-4403-4403-4403-01881BB815B6", false, []),
-              new TreeClass("برنامه ریزی", "2AA4696D-4403-4403-4403-01881BB815B6", false, []),
-            ]),
-        ]),
-
-      new TreeClass("مالی", "2AA4696D-4403-4403-4403-01881BB815B6", false, []),
-      new TreeClass("بهره برداری", "2AA4696D-4403-4403-4403-01881BB815B6", false, [])
-
-
-
-    ];
 
     if (this.isMultiSelectable == false) {
       this.ClearChecks();
@@ -55,6 +39,41 @@ export class TinputComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log("ngOnInit");
+     this.ClearChecks();
+     this.ngAfterContentInit();
+
+  }
+
+
+  ngAfterContentInit(){
+    console.log("ngAfterContentInit");
+        this.GetData();
+      }
+
+      
+  GetData():any{
+    console.log("GetData");
+    this.tree = [
+      new MyTreeViewModel("حراست", "2AA4696D-4403-4403-4403-01881BB815B6", false,
+        [
+          new MyTreeViewModel("نگهبانی", "2AA4696D-4403-4403-4403-01881BB815B6", false, []),
+          new MyTreeViewModel("اداری", "2AA4696D-4403-4403-4403-01881BB815B6", false, []),
+          new MyTreeViewModel("مراقبت", "2AA4696D-4403-4403-4403-01881BB815B6", false, []),
+          new MyTreeViewModel(" با شرایط و ضوابط موافقم و آن را می پذیرم اطلاعات", "2AA4696D-4403-4403-4403-01881BB815B6", false,
+            [
+              new MyTreeViewModel("با شرایط و ضوابط موافقم و آن را می پذیرم اداری", "2AA4696D-4403-4403-4403-01881BB815B6", false, []),
+              new MyTreeViewModel("نیروی انسانی", "2AA4696D-4403-4403-4403-01881BB815B6", false, []),
+              new MyTreeViewModel("برنامه ریزی", "2AA4696D-4403-4403-4403-01881BB815B6", false, []),
+            ]),
+        ]),
+
+      new MyTreeViewModel("مالی", "2AA4696D-4403-4403-4403-01881BB815B6", false, []),
+      new MyTreeViewModel("بهره برداری", "2AA4696D-4403-4403-4403-01881BB815B6", false, [])
+
+
+
+    ];
   }
 
 
@@ -79,8 +98,8 @@ export class TinputComponent implements OnInit {
     } else if (this.isMultiSelectable == true) {
       let find = this.SelectedList.find(obj => obj.id == id);
       if (find == null) {
-        //  let findNew=this.tree.find(t => t.id == id) as TreeClass
-        let findNew = this.FindInTree2(this.tree, id) as TreeClass
+        //  let findNew=this.tree.find(t => t.id == id) as MyTreeViewModel
+        let findNew = this.FindInTree2(this.tree, id) as MyTreeViewModel
         if (findNew != null)
           this.SelectedList.push(findNew);
       }
@@ -103,6 +122,9 @@ export class TinputComponent implements OnInit {
       element.checked = false;
       this.SelectedList = [];
     });
+
+    console.log("ClearChecks");
+
   }
 
 
@@ -132,7 +154,7 @@ export class TinputComponent implements OnInit {
     // this.SelectedList = [];
     // const ch = document.getElementById(id) as HTMLInputElement;
     // if (ch.checked == true) {
-    //   this.SelectedList.push(this.tree.find(t => t.id == id) as TreeClass);
+    //   this.SelectedList.push(this.tree.find(t => t.id == id) as MyTreeViewModel);
     //   this.FindInTree(this.tree, id);
     // } else {
     //   this.SelectedList = [];
@@ -144,7 +166,7 @@ export class TinputComponent implements OnInit {
 
 
 
-  FindInTree(arr: Array<TreeClass>, id: any): void {
+  FindInTree(arr: Array<MyTreeViewModel>, id: any): void {
     // this.tree.forEach(t => {
     //   if(t.id==id)
     //   return t;
@@ -170,7 +192,7 @@ export class TinputComponent implements OnInit {
   }
 
 
-  FindInTree2(arr: Array<TreeClass>, id: any): any {
+  FindInTree2(arr: Array<MyTreeViewModel>, id: any): any {
 
     arr.forEach(element => {
       if (element.id == id) {
@@ -190,7 +212,7 @@ export class TinputComponent implements OnInit {
   }
 
 
-  FindInTree3(arr: Array<TreeClass>, id: any): any {
+  FindInTree3(arr: Array<MyTreeViewModel>, id: any): any {
 
     arr.forEach(element => {
       if (element.id == id) {
@@ -239,7 +261,7 @@ export class TinputComponent implements OnInit {
 
   }
 
-  FindAllIds(arr: Array<TreeClass>): void {
+  FindAllIds(arr: Array<MyTreeViewModel>): void {
 
     arr.forEach(element => {
       this.AllIds.push(element.id)
@@ -267,5 +289,6 @@ export class TinputComponent implements OnInit {
   {
     return this.id.emit(this.AllIds);
   }
+
 
 }

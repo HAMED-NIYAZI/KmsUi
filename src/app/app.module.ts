@@ -1,3 +1,4 @@
+import { MyTreeViewComponent } from './components/CommonComponent/my-tree-view/my-tree-view.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -9,7 +10,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { MainlayoutComponent } from './components/mainlayout/mainlayout.component';
 import { LoginComponent } from './components/login/login.component';
 import { NotfoundpageComponent } from './components/CommonComponent/notfoundpage/notfoundpage.component';
-import { TreeComponent } from './components/CommonComponent/tree/tree.component';
 import { RegisterRequestComponent } from './components/register-request/register-request.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
@@ -22,6 +22,8 @@ import { OrganizationComponent } from './components/organization/organization.co
 import { MainContentComponent } from './components/main-content/main-content.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import {MatButtonModule} from '@angular/material/button';
+
 
 
 @NgModule({
@@ -33,11 +35,12 @@ import { HttpClientModule } from '@angular/common/http';
     MainlayoutComponent,
     LoginComponent,
     NotfoundpageComponent,
-    TreeComponent,
     RegisterRequestComponent,
+    MyTreeViewComponent,
     TinputComponent,
     OrganizationComponent,
     MainContentComponent,
+ 
    ],
   imports: [
     BrowserModule,
@@ -50,6 +53,8 @@ import { HttpClientModule } from '@angular/common/http';
     MaterialInstanceModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatButtonModule,
+     
   ],
   providers: [],
   bootstrap: [AppComponent]
