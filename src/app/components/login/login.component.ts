@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 import { LoginPageSettingService } from './../../services/HomePageSettings/login-page-setting.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 loginPageModel:any;
-  constructor(private loginPageSettingService: LoginPageSettingService) { }
+  constructor(private loginPageSettingService: LoginPageSettingService,private toastr: ToastrService) { }
 
   ngOnInit(): void {
  
@@ -17,8 +18,10 @@ loginPageModel:any;
         this.loginPageModel=res.data;
       }
      },err=>{
-      alert(err.message);
-
+         if(err.status==0 && err.statusText=="Unknown Error")
+        {
+this.toastr.success('سرور در دسترس نیست','خطا');
+        }
     });
   }
 
