@@ -9,5 +9,6 @@ export class MyTreeViewModel {
       this.id = id;
       this.isChecked=isChecked;
       this.nodes = nodes;
+      
     }
   }
