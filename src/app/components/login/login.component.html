@@ -1,78 +1,89 @@
-<main>
-  <div class="container">
-
-    <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
-
-            <div class="d-flex justify-content-center py-4 logomarlgin">
-              <a href="index.html" class="logo d-flex align-items-center w-auto ">
-                <img src="assets/img/logo.png" alt="">
-                <span class="spanTitleLogo" *ngIf='this.loginPageModel.title!=null'>{{this.loginPageModel.title}}</span>
-                <span class="spanTitleLogo" *ngIf="!this.loginPageModel || !this.loginPageModel.title">نرم افزار مدیریت دانش</span>
-              </a>
-            </div><!-- End Logo -->
-
-            <div class="card-login mb-3">
-
-              <div class="card-body">
-
-                <div class="pt-4 pb-2">
-                  <h5 class="card-title text-center pb-0 fs-4 ">ورود به سامانه</h5>
-                  <p class="text-center small">جهت ورود، نام کاربری و گذر واژه خود را وارد کنید</p>
-                </div>
-
-                <form class="row g-3 needs-validation" novalidate>
-
-                  <div class="col-12">
-                    <label for="yourUsername" class="form-label">نام کاربری</label>
-                    <div class="input-group has-validation">
-                      <!-- <span class="input-group-text" id="inputGroupPrepend">@</span> -->
-                      <input type="text" name="username" class="form-control" id="yourUsername" required>
-                      <div class="invalid-feedback">لطفا، نام کاربری خود را وارد کنید.</div>
-                    </div>
-                  </div>
-
-                  <div class="col-12">
-                    <label for="yourPassword" class="form-label">گذر واژه</label>
-                    <input type="password" name="password" class="form-control" id="yourPassword" required>
-                    <div class="invalid-feedback">لطفا، گذر واژه خود را وارد کنید!</div>
-                  </div>
-
-                  <div class="col-12">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" name="remember" value="true" id="rememberMe">
-                      <label class="form-check-label" for="rememberMe">مرا به خاطر بسپار</label>
-                    </div>
-                  </div>
-                  <div class="col-12">
-                    <button class="btn btn-primary w-100 btnloginmargin" type="submit">ورود</button>
-                  </div>
-                  <div class="col-12" >
-                    <p class="small mb-0 hesabkarbarimargin">حساب کاربری ندارید؟ <a href="pages-register.html">یک حساب کاربری ایجاد
-                        کنید</a></p>
-                  </div>
-                </form>
-
-              </div>
+<div class="error-page1 bg-light text-dark">
 
 
+
+
+  <!-- Page -->
+  <div class="page">
+
+
+    <!-- container -->
+    <div class="container-fluid">
+
+      <div class="row no-gutter">
+        <!-- The image half -->
+        <div class="col-md-6 col-lg-6 col-xl-7 d-none d-md-flex bg-primary-transparent">
+          <div class="row wd-100p mr-center text-center">
+            <div class="col-md-12 col-lg-12 col-xl-12 my-auto mr-center wd-100p">
+              <img src="assets/img/media/login.png" class="my-auto ht-xl-80p wd-md-100p wd-xl-80p mr-center" alt="logo">
             </div>
-
-            <div class="credits designermargin">
-              <!-- All the links in the footer should remain intact. -->
-              <!-- You can delete the links only if you purchased the pro version. -->
-              <!-- Licensing information: https://bootstrapmade.com/license/ -->
-              <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-              طراحی شده توسط حامد نیازمند
-            </div>
-
           </div>
+        </div>
+        <!-- The content half -->
+        <div class="col-md-6 col-lg-6 col-xl-5 bg-white">
+          <div class="login d-flex align-items-center py-2">
+            <!-- Demo content-->
+            <div class="container p-0">
+              <div class="row">
+                <div class="col-md-10 col-lg-10 col-xl-9 mr-center">
+                  <div class="card-sigin">
+                    <div class="card-sigin">
+                      <div class="card-sigin d-flex mb-5">
+                        <a href="index.html"><img src="assets/img/brand/favicon.png" class="sign-favicon-a ht-40"
+                            alt="logo">
+                          <img src="assets/img/brand/favicon-white.png" class="sign-favicon-b ht-40" alt="logo">
+                        </a>
+                        <h1 class="main-logo1 ms-1 me-0 my-auto tx-28 ps-1">Va<span>le</span>x</h1>
+                      </div>
+                      <div class="card-sigin">
+                        <div class="main-signup-header">
+                          <h2>خوش برگشتی!</h2>
+                          <h5 class="fw-semibold mb-4">لطفا برای ادامه وارد شوید.</h5>
+                          <form action="#">
+                            <div class="form-group">
+                              <label>پست الکترونیک</label> <input class="form-control"
+                                placeholder="ایمیل خود را وارد کنید" type="text">
+                            </div>
+                            <div class="form-group">
+                              <label>کلمه عبور</label> <input class="form-control"
+                                placeholder="رمز عبور خود را وارد کنید" type="password">
+                            </div><a class="btn btn-main-primary btn-block" href="index.html">ورود</a>
+                            <div class="row row-xs">
+                              <div class="col-sm-6">
+                                <button class="btn btn-block"><i class="fab fa-facebook-f"></i> ثبت نام با حساب
+                                  فیسبوک</button>
+                              </div>
+                              <div class="col-sm-6 mg-t-10 mg-sm-t-0">
+                                <button class="btn btn-info btn-block btn-b"><i class="fab fa-twitter"></i> ثبت نام با
+                                  توییتر</button>
+                              </div>
+                            </div>
+                          </form>
+                          <div class="main-signin-footer mt-5">
+                            <p><a href="forgot.html">رمز عبور را فراموش کرده اید؟</a></p>
+                            <p>حساب کاربری ندارید؟<a href="signup.html"> ایجاد یک حساب کاربری </a></p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div><!-- End -->
+            </div>
+          </div><!-- End -->
         </div>
       </div>
 
-    </section>
+    </div>
+    <!-- container -->
+
 
   </div>
-</main><!-- End #main -->
+
+
+
+
+
+
+</div>
+<!-- class -->

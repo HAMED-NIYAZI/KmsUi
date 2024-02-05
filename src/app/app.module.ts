@@ -23,8 +23,7 @@ import { MainContentComponent } from './components/main-content/main-content.com
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {MatButtonModule} from '@angular/material/button';
-import { ToastrModule } from 'ngx-toastr';
-
+ 
 
 
 @NgModule({
@@ -55,8 +54,7 @@ import { ToastrModule } from 'ngx-toastr';
     ReactiveFormsModule,
     HttpClientModule,
     MatButtonModule,
-     ToastrModule.forRoot({ positionClass: 'inline' }),
-      
+       
      
      
   ],
