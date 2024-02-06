@@ -3,80 +3,67 @@
 
 
 
-  <!-- Page -->
-  <div class="page">
+   <div class="page">
 
 
-    <!-- container -->
-    <div class="container-fluid">
+     <div class="container-fluid">
 
       <div class="row no-gutter">
-        <!-- The image half -->
-        <div class="col-md-6 col-lg-6 col-xl-7 d-none d-md-flex bg-primary-transparent">
+         <div class="col-md-6 col-lg-6 col-xl-7 d-none d-md-flex bg-primary-transparent">
           <div class="row wd-100p mr-center text-center">
             <div class="col-md-12 col-lg-12 col-xl-12 my-auto mr-center wd-100p">
-              <img src="assets/img/media/login.png" class="my-auto ht-xl-80p wd-md-100p wd-xl-80p mr-center" alt="logo">
+              <img 
+              [src]="loginPageModel.image2Path ? loginPageModel.image2Path : 'assets/img/media/login.png'" 
+               class="my-auto ht-xl-80p wd-md-100p wd-xl-80p mr-center" alt="logo">
             </div>
           </div>
         </div>
-        <!-- The content half -->
-        <div class="col-md-6 col-lg-6 col-xl-5 bg-white">
+         <div class="col-md-6 col-lg-6 col-xl-5 bg-white">
           <div class="login d-flex align-items-center py-2">
-            <!-- Demo content-->
-            <div class="container p-0">
+             <div class="container p-0">
               <div class="row">
                 <div class="col-md-10 col-lg-10 col-xl-9 mr-center">
                   <div class="card-sigin">
                     <div class="card-sigin">
                       <div class="card-sigin d-flex mb-5">
-                        <a href="index.html"><img src="assets/img/brand/favicon.png" class="sign-favicon-a ht-40"
+                        <a  ><img  [src]="loginPageModel.imagePath ? loginPageModel.imagePath : 'assets/img/brand/favicon.png'" class="sign-favicon-a ht-40"
                             alt="logo">
-                          <img src="assets/img/brand/favicon-white.png" class="sign-favicon-b ht-40" alt="logo">
+                          <!-- <img src="assets/img/brand/favicon-white.png" class="sign-favicon-b ht-40" alt="logo"> -->
                         </a>
-                        <h1 class="main-logo1 ms-1 me-0 my-auto tx-28 ps-1">Va<span>le</span>x</h1>
+                        <h1 class="main-logo1 ms-1 me-0 my-auto tx-28 ps-1"> {{loginPageModel.title}}</h1>
                       </div>
                       <div class="card-sigin">
                         <div class="main-signup-header">
-                          <h2>خوش برگشتی!</h2>
+                          <h2>   ورود به حساب کاربری</h2>
                           <h5 class="fw-semibold mb-4">لطفا برای ادامه وارد شوید.</h5>
                           <form action="#">
                             <div class="form-group">
-                              <label>پست الکترونیک</label> <input class="form-control"
-                                placeholder="ایمیل خود را وارد کنید" type="text">
+                              <label> کدملی  </label> <input class="form-control"
+                                placeholder="کدملی خود را وارد کنید" type="text">
                             </div>
                             <div class="form-group">
                               <label>کلمه عبور</label> <input class="form-control"
-                                placeholder="رمز عبور خود را وارد کنید" type="password">
-                            </div><a class="btn btn-main-primary btn-block" href="index.html">ورود</a>
-                            <div class="row row-xs">
-                              <div class="col-sm-6">
-                                <button class="btn btn-block"><i class="fab fa-facebook-f"></i> ثبت نام با حساب
-                                  فیسبوک</button>
-                              </div>
-                              <div class="col-sm-6 mg-t-10 mg-sm-t-0">
-                                <button class="btn btn-info btn-block btn-b"><i class="fab fa-twitter"></i> ثبت نام با
-                                  توییتر</button>
-                              </div>
-                            </div>
+                                placeholder="کلمه عبور خود را وارد کنید" type="password">
+                            </div><a class="btn btn-main-primary btn-block" style="color: white;" >ورود</a>
+           
                           </form>
                           <div class="main-signin-footer mt-5">
-                            <p><a href="forgot.html">رمز عبور را فراموش کرده اید؟</a></p>
-                            <p>حساب کاربری ندارید؟<a href="signup.html"> ایجاد یک حساب کاربری </a></p>
+                            <p><a  >کلمه عبور را فراموش کرده اید؟</a></p>
+                            <p>حساب کاربری ندارید؟<a  > ایجاد یک حساب کاربری </a></p>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div><!-- End -->
+              </div> 
             </div>
-          </div><!-- End -->
+          </div> 
         </div>
       </div>
 
     </div>
-    <!-- container -->
-
+ 
 
   </div>
 
