@@ -16,26 +16,33 @@ export class AccountService {
 
   isUserLoginAccordingToLocalStorage(): boolean {
     const token = localStorage.getItem('token');
-    const userid = localStorage.getItem('userid');
+    const clientinfo = localStorage.getItem('client-info');
 
-    if (userid == '' || userid?.length != 36 || userid == null || userid == undefined ||
+    if (clientinfo == '' ||  clientinfo == null || clientinfo == undefined ||
       token == '' || token == null || token == undefined) {
       localStorage.clear();
       return false;
     }
     return true;
   }
+ 
+  saveClientToken(clientinfo: any) {
+    localStorage.setItem('token', clientinfo.token);
+  }
 
-Login(model:any):any{
-  this.http.post(this.apiUrl+'Home/GetLoginPageSetting', model);
-}
+  saveClientInfo(clientinfo: any) {
+    localStorage.setItem('client-info', clientinfo);
+  }
 
+  clearLocalStorage() {
+    localStorage.clear();
+  }
 
-login(model: any): Observable<any> {
+Login(model: any): Observable<any> {
   const headers = this.default_headers;
   const body = JSON.stringify(model);
   
-  return this.http.post<any>(this.apiUrl + 'Home/GetLoginPageSetting', body, { 'headers': headers });
+  return this.http.post<any>(this.apiUrl + 'Account/Login', body, { 'headers': headers });
 }
 
 

@@ -40,15 +40,40 @@
                         <div class="main-signup-header">
                           <h2>   ورود به حساب کاربری</h2>
                           <h5 class="fw-semibold mb-4">لطفا برای ادامه وارد شوید.</h5>
-                          <form action="#">
+                             <form [formGroup]="loginForm" (ngSubmit)="Login()">
                             <div class="form-group">
-                              <label> کدملی  </label> <input class="form-control"
-                                placeholder="کدملی خود را وارد کنید" type="text">
+                              <label> کدملی  </label> 
+                               <input class="form-control"
+                                                placeholder="کدملی 10 رقمی خود را وارد کنید" type="text"
+                                                formControlName="UserName">
+                                                <div *ngIf="loginForm.get('UserName')?.invalid && loginForm.touched">
+                                                    <span *ngIf="loginForm.get('UserName')?.errors?.['required']"  class="text-danger font-small-for-validation">  این فیلد اجباری است    <br/> </span>
+                                                    <span *ngIf="loginForm.get('UserName')?.errors?.['minlength']"  class="text-danger font-small-for-validation">کدملی باید دقیقا 10 کاراکتر باشد   <br/>  </span>
+                                                    <span *ngIf="loginForm.get('UserName')?.errors?.['maxlength']"  class="text-danger font-small-for-validation">کدملی باید دقیقا 10 کاراکتر باشد   <br/>  </span>  
+                                                    <span *ngIf="loginForm.get('UserName')?.errors?.['pattern']"  class="text-danger font-small-for-validation">کد ملی معتبر نمی باشد  <br/></span>  
+
+                                                </div>  
+
                             </div>
                             <div class="form-group">
-                              <label>کلمه عبور</label> <input class="form-control"
-                                placeholder="کلمه عبور خود را وارد کنید" type="password">
-                            </div><a class="btn btn-main-primary btn-block" style="color: white;" >ورود</a>
+                              <label>کلمه عبور</label> 
+                               <input class="form-control"
+                              placeholder="کلمه عبور خود را وارد کنید" type="password"
+                                                formControlName="Password">
+                                                <div *ngIf="loginForm.get('Password')?.invalid && loginForm.touched">
+                                                    <span *ngIf="loginForm.get('Password')?.errors?.['required']"  class="text-danger font-small-for-validation">  این فیلد اجباری است  <br/>   </span>
+                                                    <span *ngIf="loginForm.get('Password')?.errors?.['minlength']"  class="text-danger font-small-for-validation">کلمه عبور باید حداقل 6 کاراکتر باشد   <br/> </span>
+                                                    <span *ngIf="loginForm.get('Password')?.errors?.['maxlength']"  class="text-danger font-small-for-validation">کلمه عبور باید حداکثر 20 کاراکتر باشد  <br/>  </span>  
+                                                </div> 
+
+                            </div>
+                            
+                            <button  class="btn btn-main-primary btn-block" style="color: white;" 
+                            [disabled]="!this.loginForm.valid" 
+                            type="submit" >ورود</button>
+ 
+
+
            
                           </form>
                           <div class="main-signin-footer mt-5">
