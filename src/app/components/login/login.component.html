@@ -13,7 +13,7 @@
           <div class="row wd-100p mr-center text-center">
             <div class="col-md-12 col-lg-12 col-xl-12 my-auto mr-center wd-100p">
               <img 
-              [src]="loginPageModel.image2Path ? loginPageModel.image2Path : 'assets/img/media/login.png'" 
+              [src]="( loginPageModel ==null || loginPageModel.image2Path ==null || loginPageModel.image2Path ==undefined ) ?  'assets/img/media/login.png' : loginPageModel.image2Path " 
                class="my-auto ht-xl-80p wd-md-100p wd-xl-80p mr-center" alt="logo">
             </div>
           </div>
@@ -26,11 +26,15 @@
                   <div class="card-sigin">
                     <div class="card-sigin">
                       <div class="card-sigin d-flex mb-5">
-                        <a  ><img  [src]="loginPageModel.imagePath ? loginPageModel.imagePath : 'assets/img/brand/favicon.png'" class="sign-favicon-a ht-40"
+                        <a  ><img  [src]="( loginPageModel ==null || loginPageModel.imagePath ==null || loginPageModel.imagePath ==undefined ) ?  'assets/img/brand/favicon.png' : loginPageModel.imagePath " class="sign-favicon-a ht-40"
                             alt="logo">
                           <!-- <img src="assets/img/brand/favicon-white.png" class="sign-favicon-b ht-40" alt="logo"> -->
                         </a>
-                        <h1 class="main-logo1 ms-1 me-0 my-auto tx-28 ps-1"> {{loginPageModel.title}}</h1>
+                
+                        <h1 class="main-logo1 ms-1 me-0 my-auto tx-28 ps-1">
+                          {{ (loginPageModel == null || loginPageModel.title == null || loginPageModel.title === undefined) ? 'شرکت پیش فرض' : loginPageModel.title }}
+                      </h1>
+
                       </div>
                       <div class="card-sigin">
                         <div class="main-signup-header">

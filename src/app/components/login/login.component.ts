@@ -1,6 +1,8 @@
 //import { ToastrService } from 'ngx-toastr';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoginPageSettingService } from './../../services/HomePageSettings/login-page-setting.service';
 import { Component, OnInit } from '@angular/core';
+import { AccountService } from 'src/app/services/Account/account.service';
 
 @Component({
   selector: 'app-login',
@@ -9,9 +11,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
   loginPageModel: any;
+  loginForm!: FormGroup;
 
 
-  constructor(private loginPageSettingService: LoginPageSettingService) { }
+  constructor(private loginPageSettingService: LoginPageSettingService,private accountService: AccountService) { }
 
   ngOnInit(): void {
 
@@ -34,9 +37,18 @@ export class LoginComponent implements OnInit {
         ///this.toastr.success('سرور در دسترس نیست','خطا');
       }
     });
+
+    this.loginForm = new FormGroup({
+      emailAddress: new FormControl("", [Validators.email, Validators.required]),
+      password: new FormControl("", [Validators.required, Validators.minLength(6), Validators.maxLength(20)]),
+
+    });
+
   }
 
+  // Login():any{
+  //   this.accountService.login(this.loginForm.value).subscribe(data => {}
+  // }
 
 
- 
 }
