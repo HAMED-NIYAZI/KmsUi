@@ -10,8 +10,6 @@ export class AccountService {
   apiUrl=environment.apiUrl;
   private readonly default_headers: any = { 'accept': '*/*', 'Content-Type': 'application/json' };
 
-
-
   constructor(private http: HttpClient) { }
 
   isUserLoginAccordingToLocalStorage(): boolean {
@@ -44,7 +42,6 @@ Login(model: any): Observable<any> {
   
   return this.http.post<any>(this.apiUrl + 'Account/Login', body, { 'headers': headers });
 }
-
 
 
 }
