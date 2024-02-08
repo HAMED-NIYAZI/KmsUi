@@ -4,6 +4,7 @@ import { LoginPageSettingService } from './../../services/HomePageSettings/login
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from 'src/app/services/Account/account.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,8 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
 
 
-  constructor(private loginPageSettingService: LoginPageSettingService, private accountService: AccountService, private router: Router) { }
+  constructor(private loginPageSettingService: LoginPageSettingService, private accountService: AccountService, private router: Router,
+    private toastr: ToastrService) { }
 
   ngOnInit(): void {
 
@@ -24,19 +26,20 @@ export class LoginComponent implements OnInit {
       //    ok
       if (res.result == 0 || res.data != null) {
         this.loginPageModel = res.data;
-      }
+       }
 
       //    not ok
       if (res.result != 0) {
         ///this.toastr.success('سرور در دسترس نیست','خطا');
         // دیتای پیش فرض لود شود
+        this.toastr.error('سرور در دسترس نیست','');    
       }
 
 
     }, err => {
       if (err.status == 0 && err.statusText == "Unknown Error") {
-        ///this.toastr.success('سرور در دسترس نیست','خطا');
-      }
+        this.toastr.error('سرور در دسترس نیست','');    
+        }
     });
 
     this.loginForm = new FormGroup({
@@ -64,6 +67,7 @@ export class LoginComponent implements OnInit {
         this.accountService.saveClientToken(res.data);
 
         this.router.navigate(['/home'])
+        this.toastr.success('ورود موفق به سامانه','');
         //Success
         return;
       }
@@ -87,6 +91,8 @@ export class LoginComponent implements OnInit {
  
       if (res.result == 5) {
         //NotFound
+        this.toastr.success('       نام کاربری و یا کلمه عبور اشتباه می باشد      ','     ');
+
         return;
       }
 
