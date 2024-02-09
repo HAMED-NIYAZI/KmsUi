@@ -16,8 +16,7 @@ export class AdminOrganizationService implements OnInit {
   //return this.http.post<Hero>(this.heroesUrl, hero, httpOptions)
 
   Save(model: any): any {
-    debugger;
-
+ 
     this.http.post(this.ApiUrl, model).subscribe(res => {
       if(res==true) {console.log(true);return true;}
       if(res==false) {console.log(false);return false;}

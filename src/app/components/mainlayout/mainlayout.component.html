@@ -1,16 +1,48 @@
-<div [className]="toggleSidebarValrable ? 'toggle-sidebar' : ''">
-  <!-- ======= Header ======= -->
-  <app-header (toggleSidebarvariable)="fireToggleSidebarClass()"></app-header>
-  <!-- End Header -->
+<!-- <div [className]="toggleSidebarValrable ? 'toggle-sidebar' : ''">
 
-  <!-- ======= Sidebar ======= -->
-  <app-sidebar></app-sidebar>
-  <!-- End Sidebar-->
 
+   <app-header (toggleSidebarvariable)="fireToggleSidebarClass()"></app-header>
  
-<router-outlet></router-outlet>
-  <!-- ======= Footer ======= -->
-   <app-footer></app-footer>
-   <!-- End Footer -->
-
+   <app-sidebar></app-sidebar>
+ 
+ 
+    <app-footer></app-footer>
+ 
 </div>
+
+ -->
+
+
+<body class="main-body app sidebar-mini">
+
+  <!-- Loader -->
+  <!-- <div id="global-loader">
+    <img src="assets/img/loader.svg" class="loader-img" alt="Loader">
+  </div> -->
+  <!-- /Loader -->
+
+  <!-- Page -->
+  <div class="page">
+
+    <!-- main-sidebar -->
+    <app-sidebar></app-sidebar>
+    <!-- main-content -->
+    <div class='main-content app-content'>
+
+      <app-header></app-header>
+      <!-- Container open -->
+      <router-outlet></router-outlet>
+
+      <!-- Container closed -->
+
+    </div>
+    <!-- main-content closed -->
+
+    <!-- sidebar-right -->
+
+    <app-footer></app-footer>
+
+
+  </div>
+
+  <a href="#top" id="back-to-top"><i class="las la-angle-double-up"></i></a>

@@ -1,11 +1,12 @@
-//import { ToastrService } from 'ngx-toastr';
+ //import { ToastrService } from 'ngx-toastr';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoginPageSettingService } from './../../services/HomePageSettings/login-page-setting.service';
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from 'src/app/services/Account/account.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-
+import { environment } from 'src/environments/environment';
+  
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -14,10 +15,14 @@ import { ToastrService } from 'ngx-toastr';
 export class LoginComponent implements OnInit {
   loginPageModel: any;
   loginForm!: FormGroup;
+  apiUrlImage = environment.apiUrlImage;
 
 
   constructor(private loginPageSettingService: LoginPageSettingService, private accountService: AccountService, private router: Router,
-    private toastr: ToastrService) { }
+    private toastr: ToastrService) {
+
+    this.accountService.clearLocalStorage();
+  }
 
   ngOnInit(): void {
 
@@ -26,20 +31,21 @@ export class LoginComponent implements OnInit {
       //    ok
       if (res.result == 0 || res.data != null) {
         this.loginPageModel = res.data;
-       }
+        this.accountService.saveHomePageSettingsInfo(res.data);
+        }
 
       //    not ok
       if (res.result != 0) {
         ///this.toastr.success('سرور در دسترس نیست','خطا');
         // دیتای پیش فرض لود شود
-        this.toastr.error('سرور در دسترس نیست','');    
+        this.toastr.error('سرور در دسترس نیست', '');
       }
 
 
     }, err => {
       if (err.status == 0 && err.statusText == "Unknown Error") {
-        this.toastr.error('سرور در دسترس نیست','');    
-        }
+        this.toastr.error('سرور در دسترس نیست', '');
+      }
     });
 
     this.loginForm = new FormGroup({
@@ -54,26 +60,25 @@ export class LoginComponent implements OnInit {
   // }
 
   Login(): any {
-
+    debugger;
     this.accountService.Login(this.loginForm.value).subscribe((res: {
       data: string;
       result: number; status: number;
     }): void => {
- debugger;
       if (res.result == 0) {
-        this.accountService.clearLocalStorage();
-        
+        this.accountService.clearLocalStorage_TokenAndUserInfo();
+
         this.accountService.saveClientInfo(res.data);
         this.accountService.saveClientToken(res.data);
-
-        this.router.navigate(['/home'])
-        this.toastr.success('ورود موفق به سامانه','');
+  
+        this.router.navigate([''])
+        this.toastr.success('ورود موفق به سامانه', '');
         //Success
         return;
       }
 
       if (res.result == 1) {
-        
+
         //failed
         return;
       }
@@ -88,17 +93,17 @@ export class LoginComponent implements OnInit {
         return;
       }
 
- 
+
       if (res.result == 5) {
         //NotFound
-        this.toastr.success('       نام کاربری و یا کلمه عبور اشتباه می باشد      ','     ');
+        this.toastr.error('       نام کاربری و یا کلمه عبور اشتباه می باشد      ', '     ');
 
         return;
       }
 
     }, (error: any) => {
 
- 
+
 
 
     });

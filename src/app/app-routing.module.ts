@@ -8,7 +8,7 @@ import { AuthGuard } from './services/security/Auth/auth-guard.service';
 import { RegisterRequestComponent } from './components/register-request/register-request.component';
 import { OrganizationComponent } from './components/organization/organization.component';
 import { MainContentComponent } from './components/main-content/main-content.component';
-
+ 
 const routes: Routes = [
  // { path: '', canActivate: [AuthGuard], component: MainlayoutComponent, pathMatch: 'full', },
   { path: 'login', component: LoginComponent },

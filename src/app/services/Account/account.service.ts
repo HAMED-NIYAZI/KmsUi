@@ -23,6 +23,12 @@ export class AccountService {
     }
     return true;
   }
+  
+
+  saveHomePageSettingsInfo(homePageSettingsInfo: any) {
+    debugger;
+    localStorage.setItem('home-page-settings-Info', JSON.stringify(homePageSettingsInfo));
+  }
 
   saveClientToken(clientinfo: any) {
     localStorage.setItem('token', clientinfo.token);
@@ -36,6 +42,17 @@ export class AccountService {
     localStorage.clear();
   }
 
+  clearLocalStorage_TokenAndUserInfo() {
+    localStorage.removeItem('client-info');
+    localStorage.removeItem('token');
+  }
+
+  getClientInfoFromLocalStorage():any{
+return localStorage.getItem('client-info');
+  }
+
+
+
   Login(model: any): Observable<any> {
     const headers = this.default_headers;
     const body = JSON.stringify(model);
@@ -43,5 +60,38 @@ export class AccountService {
     return this.http.post<any>(this.apiUrl + 'Account/Login', body, { 'headers': headers });
   }
 
+
+
+  get_User_FullName(){
+    const info = this.get_ClientInfo();
+    const info1:string=info.firstName+' '+info.lastName;
+    return info1
+  }
+
+  get_User_ImagePath(){
+    debugger;
+    const info = this.get_ClientInfo();
+    const info1:string=info.imagePath;
+    return info1
+  }
+
+  get_ClientInfo(){
+    return  JSON.parse(localStorage.getItem('client-info') || '{}');
+  }
+
+  get_HomePage_title(){
+    const info = this.get_HomePageSetting();
+    const info1:string=info.title;
+    return info1
+  }
+
+  get_HomePage_ImagePath(){
+    const info = this.get_HomePageSetting();
+    const info1:string=info.imagePath;
+    return info1
+  }
+  get_HomePageSetting(){
+   return JSON.parse(localStorage.getItem('home-page-settings-Info') || '{}');
+  }
 
 }

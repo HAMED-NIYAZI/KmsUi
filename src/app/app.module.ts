@@ -24,7 +24,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {MatButtonModule} from '@angular/material/button';
 import { ToastrModule } from 'ngx-toastr';
- 
+  
 
 
 @NgModule({
@@ -60,7 +60,9 @@ import { ToastrModule } from 'ngx-toastr';
      
      
   ],
-  providers: [],
+  providers: [   
+ 
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

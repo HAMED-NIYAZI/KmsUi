@@ -1,229 +1,60 @@
-<!-- ======= Header ======= -->
-<header id="header" class="header fixed-top d-flex align-items-center">
 
-  <div class="d-flex align-items-center justify-content-between">
-    <a href="index.html" class="logo d-flex align-items-center">
-      <img src="assets/img/logo.png" alt="">
-      <span class="d-none d-lg-block" style="font-size: 1rem;">نرم افزار مدیریت دانش وزارت بهداشت</span>
-    </a>
-    <!-- این ساید بار را باز و بسته میکند -->
-    <i class="bi bi-list toggle-sidebar-btn" (click)="toggleSidebar()"></i>
-  </div><!-- End Logo -->
-
-  <div class="search-bar">
-    <form class="search-form d-flex align-items-center" method="POST" action="#">
-      <input type="text" name="query" placeholder="جستجو" title="Enter search keyword">
-      <button type="submit" title="بگرد"><i class="bi bi-search"></i></button>
-    </form>
-  </div><!-- End Search Bar -->
-
-  <nav class="header-nav me-auto">
-    <ul class="d-flex align-items-center">
-
-      <li class="nav-item d-block d-lg-none">
-        <a class="nav-link nav-icon search-bar-toggle " href="#">
-          <i class="bi bi-search"></i>
-        </a>
-      </li><!-- End Search Icon-->
-
-      <li class="nav-item dropdown">
-
-        <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-          <i class="bi bi-bell"></i>
-          <span class="badge bg-primary badge-number">۴</span>
-        </a><!-- End Notification Icon -->
-
-        <ul class="dropdown-menu dropdown-menu-start dropdown-menu-arrow notifications">
-          <li class="dropdown-header">
-            شما ۴ اعلان جدید دارید
-            <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">نمایش همه</span></a>
-          </li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-
-          <li class="notification-item">
-            <i class="bi bi-exclamation-circle text-warning"></i>
-            <div>
-              <h4>اعلان آزمایشی</h4>
-              <p>لورم ایپسوم متنی ساختگی در صنعت چاپ است.</p>
-              <p>۳۰ دقیقه پیش</p>
+      <div class="main-header sticky side-header nav nav-item">
+        <div class="container-fluid">
+          <div class="main-header-left ">
+            <div class="responsive-logo">
+              <a href="index.html"><img src="assets/img/brand/logo.png" class="logo-1" alt="لوگو"></a>
+              <a href="index.html"><img src="assets/img/brand/logo-white.png" class="dark-logo-1" alt="لوگو"></a>
+              <a href="index.html"><img src="assets/img/brand/favicon.png" class="logo-2" alt="لوگو"></a>
+              <a href="index.html"><img src="assets/img/brand/favicon.png" class="dark-logo-2" alt="لوگو"></a>
             </div>
-          </li>
-
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-
-          <li class="notification-item">
-            <i class="bi bi-x-circle text-danger"></i>
-            <div>
-              <h4>یک اعلان آزمایشی دیگر</h4>
-              <p>لورم ایپسوم متنی ساختگی در صنعت چاپ است.</p>
-              <p>۱ ساعت پیش</p>
+            <div class="app-sidebar__toggle" data-bs-toggle="sidebar">
+              <a class="open-toggle" href="#"><i class="header-icon fe fe-align-left"></i></a>
+              <a class="close-toggle" href="#"><i class="header-icons fe fe-x"></i></a>
             </div>
-          </li>
-
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-
-          <li class="notification-item">
-            <i class="bi bi-check-circle text-success"></i>
-            <div>
-              <h4>اعلان ساختگی</h4>
-              <p>لورم ایپسوم متنی ساختگی در صنعت چاپ است.</p>
-              <p>۲ ساعت پیش</p>
-            </div>
-          </li>
-
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-
-          <li class="notification-item">
-            <i class="bi bi-info-circle text-primary"></i>
-            <div>
-              <h4>یک اعلان دیگر</h4>
-              <p>لورم ایپسوم متنی ساختگی در صنعت چاپ است.</p>
-              <p>۴ ساعت پیش</p>
-            </div>
-          </li>
-
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-          <li class="dropdown-footer">
-            <a href="#">همه‌ی اعلان‌ها را نمایش بده</a>
-          </li>
-
-        </ul><!-- End Notification Dropdown Items -->
-
-      </li><!-- End Notification Nav -->
-
-      <li class="nav-item dropdown">
-
-        <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-          <i class="bi bi-chat-left-text"></i>
-          <span class="badge bg-success badge-number">۳</span>
-        </a><!-- End Messages Icon -->
-
-        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
-          <li class="dropdown-header">
-            شما ۳ پیام جدید دارید
-            <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">نمایش همه</span></a>
-          </li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-
-          <li class="message-item">
-            <a href="#">
-              <img src="assets/img/messages-1.jpg" alt="" class="rounded-circle">
-              <div>
-                <h4>ماریا هادسن</h4>
-                <p>استفاده از یک متن تستی می تواند سرعت پیشرفت پروژه را افزایش دهد...</p>
-                <p>۴ ساعت پیش</p>
+  
+          </div>
+          <div class="main-header-right">
+            <ul class="nav">
+              <li class="">
+ 
+              </li>
+            </ul>
+            <div class="nav nav-item  navbar-nav-right ml-auto">
+ 
+ 
+ 
+              <div class="nav-item full-screen fullscreen-button">
+                <a class="new nav-link full-screen-link" href="#"><svg xmlns="http://www.w3.org/2000/svg"
+                    class="header-icon-svgs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                      d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3">
+                    </path>
+                  </svg></a>
               </div>
-            </a>
-          </li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-
-          <li class="message-item">
-            <a href="#">
-              <img src="assets/img/messages-2.jpg" alt="" class="rounded-circle">
-              <div>
-                <h4>آنا نلسن</h4>
-                <p>استفاده از یک متن تستی می تواند سرعت پیشرفت پروژه را افزایش دهد...</p>
-                <p>۶ ساعت پیش</p>
+              <div class="dropdown main-profile-menu nav nav-item nav-link">
+                <a class="profile-user d-flex" href="#"><img alt="" src="{{UserImage}}"></a>
+                <div class="dropdown-menu">
+                  <div class="main-header-profile bg-primary p-3">
+                    <div class="d-flex wd-100p">
+                      <div class="main-img-user"><img alt="" src="{{UserImage}}" class=""></div>
+                      <div class="ms-3 my-auto">
+                        <h6>پتی کروزر</h6><span>مدیریت</span>
+                      </div>
+                    </div>
+                  </div>
+                  <a class="dropdown-item" href="#"><i class="bx bx-user-circle"></i>مشخصات</a>
+                  <a class="dropdown-item" href="#"><i class="bx bx-cog"></i> ویرایش نمایه</a>
+                  <a class="dropdown-item" href="#"><i class="bx bxs-inbox"></i>صندوق ورودی</a>
+                  <a class="dropdown-item" href="#"><i class="bx bx-envelope"></i>پیام ها</a>
+                  <a class="dropdown-item" href="#"><i class="bx bx-slider-alt"></i> تنظیمات حساب</a>
+                  <a class="dropdown-item" (click)="Logout()"><i class="bx bx-log-out"></i> خروج از سیستم</a>
+                </div>
               </div>
-            </a>
-          </li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-
-          <li class="message-item">
-            <a href="#">
-              <img src="assets/img/messages-3.jpg" alt="" class="rounded-circle">
-              <div>
-                <h4>دیوید مولدن</h4>
-                <p>استفاده از یک متن تستی می تواند سرعت پیشرفت پروژه را افزایش دهد...</p>
-                <p>۸ ساعت پیش</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-
-          <li class="dropdown-footer">
-            <a href="#">همه‌ی پیام‌ها را نمایش بده</a>
-          </li>
-
-        </ul><!-- End Messages Dropdown Items -->
-
-      </li><!-- End Messages Nav -->
-
-      <li class="nav-item dropdown pe-3">
-
-        <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-          <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-          <span class="d-none d-md-block dropdown-toggle ps-2">ک. اندرسون</span>
-        </a><!-- End Profile Iamge Icon -->
-
-        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-          <li class="dropdown-header">
-            <h6>کوین اندرسون</h6>
-            <span>طراح وب</span>
-          </li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-
-          <li>
-            <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-              <i class="bi bi-person"></i>
-              <span>پروفایل من</span>
-            </a>
-          </li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-
-          <li>
-            <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-              <i class="bi bi-gear"></i>
-              <span>تنظیمات حساب کاربری</span>
-            </a>
-          </li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-
-          <li>
-            <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
-              <i class="bi bi-question-circle"></i>
-              <span>نیازمند کمک؟</span>
-            </a>
-          </li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-
-          <li>
-            <a class="dropdown-item d-flex align-items-center" href="#">
-              <i class="bi bi-box-arrow-right"></i>
-              <span>خروج</span>
-            </a>
-          </li>
-
-        </ul><!-- End Profile Dropdown Items -->
-      </li><!-- End Profile Nav -->
-
-    </ul>
-  </nav><!-- End Icons Navigation -->
-
-</header><!-- End Header -->
+               
+            </div>
+          </div>
+        </div>
+      </div>
+ 

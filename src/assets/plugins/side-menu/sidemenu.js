@@ -140,10 +140,10 @@
 	
 	
 	
-	//P-scrolling
-	const ps = new PerfectScrollbar('.app-sidebar', {
-	  useBothWheelAxes:true,
-	  suppressScrollX:true,
-	});
+	// //P-scrolling
+	// const ps = new PerfectScrollbar('.app-sidebar', {
+	//   useBothWheelAxes:true,
+	//   suppressScrollX:true,
+	// });
 
 })();
