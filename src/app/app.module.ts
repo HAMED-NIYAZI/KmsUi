@@ -24,7 +24,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {MatButtonModule} from '@angular/material/button';
 import { ToastrModule } from 'ngx-toastr';
-  
+import { ProfileComponent } from './components/profile/profile.component';
+   
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { ToastrModule } from 'ngx-toastr';
     TinputComponent,
     OrganizationComponent,
     MainContentComponent,
- 
+    ProfileComponent,
+  
    ],
   imports: [
     BrowserModule,

@@ -1,19 +1,26 @@
 
       <div class="main-header sticky side-header nav nav-item">
         <div class="container-fluid">
+
           <div class="main-header-left ">
             <div class="responsive-logo">
-              <a href="index.html"><img src="assets/img/brand/logo.png" class="logo-1" alt="لوگو"></a>
-              <a href="index.html"><img src="assets/img/brand/logo-white.png" class="dark-logo-1" alt="لوگو"></a>
-              <a href="index.html"><img src="assets/img/brand/favicon.png" class="logo-2" alt="لوگو"></a>
-              <a href="index.html"><img src="assets/img/brand/favicon.png" class="dark-logo-2" alt="لوگو"></a>
+
+              <a href="index.html"><img src="assets/img/brand/logo.png" style="margin-right: 15px;" class="logo-1" alt="لوگو"></a>
+              <a href="index.html"><img src="assets/img/brand/logo-white.png" class="dark-logo-1" style="margin-right: 15px;" alt="لوگو"></a>
+              <a href="index.html">
+                <img src="assets/img/brand/favicon.png" class="logo-2" style="margin-right: 15px;" alt="لوگو"></a>
+              <a href="index.html"><img src="assets/img/brand/favicon.png" class="dark-logo-2" style="margin-right: 15px;" alt="لوگو"></a>
             </div>
             <div class="app-sidebar__toggle" data-bs-toggle="sidebar">
-              <a class="open-toggle" href="#"><i class="header-icon fe fe-align-left"></i></a>
-              <a class="close-toggle" href="#"><i class="header-icons fe fe-x"></i></a>
+              <!-- <a class="open-toggle" href="#"  (click)="HideOrganTitle()" ><i class="header-icon fe fe-align-left" ></i></a>
+              <a class="close-toggle"  href="#"  (click)="ShowOrganTitle()"><i class="header-icons fe fe-x" ></i></a> -->
+              <a class="open-toggle header-icon fe fe-align-left" href="#" ></a>
+              <a class="close-toggle header-icons fe fe-x"  href="#"  > </a>
             </div>
   
           </div>
+          <span  routerLink="/"  style="display: flex; justify-content: center; align-items: center; margin-top: 2px; cursor: pointer;"> {{UserOrganizationName}}</span>
+
           <div class="main-header-right">
             <ul class="nav">
               <li class="">

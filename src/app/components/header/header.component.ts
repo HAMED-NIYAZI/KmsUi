@@ -1,7 +1,7 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { AccountService } from 'src/app/services/Account/account.service';
-  import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-header',
@@ -13,13 +13,15 @@ export class HeaderComponent implements OnInit {
   @Output() toggleSidebarvariable = new EventEmitter();
   apiUrlImage = environment.apiUrlImage;
 
-  UserImage:string="";
+  UserImage: string = "";
+  UserOrganizationName:string="";
 
-  
-  constructor(private accountService : AccountService,private router:Router) { }
+
+  constructor(private accountService: AccountService, private router: Router) { }
 
   ngOnInit(): void {
-    this.UserImage=this.apiUrlImage +this.accountService.get_User_ImagePath();
+    this.UserImage = this.apiUrlImage + this.accountService.get_User_ImagePath();
+    this.UserOrganizationName=this.accountService.get_HomePage_title();
 
   }
   toggleSidebar() {
@@ -27,9 +29,12 @@ export class HeaderComponent implements OnInit {
   }
 
 
-  Logout(){
-this.accountService.clearLocalStorage();
-this.router.navigate(['/login']);
+  Logout() {
+    this.accountService.clearLocalStorage();
+    this.router.navigate(['/login']);
   }
 
+
+
 }
+
