@@ -26,7 +26,7 @@ export class AccountService {
   
 
   saveHomePageSettingsInfo(homePageSettingsInfo: any) {
-    debugger;
+
     localStorage.setItem('home-page-settings-Info', JSON.stringify(homePageSettingsInfo));
   }
 
@@ -69,7 +69,6 @@ return localStorage.getItem('client-info');
   }
 
   get_User_ImagePath(){
-    debugger;
     const info = this.get_ClientInfo();
     const info1:string=info.imagePath;
     return info1
@@ -92,6 +91,17 @@ return localStorage.getItem('client-info');
   }
   get_HomePageSetting(){
    return JSON.parse(localStorage.getItem('home-page-settings-Info') || '{}');
+  }
+
+  get_Bearer_Token(){
+    const token ='Bearer '+ localStorage.getItem('token');
+     return token;
+  }
+
+  get_User_Id(){
+    const info = this.get_ClientInfo();
+    const info1:string=info.userId;
+    return info1
   }
 
 }

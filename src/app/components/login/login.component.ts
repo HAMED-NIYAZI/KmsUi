@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
   // }
 
   Login(): any {
-    debugger;
+
     this.accountService.Login(this.loginForm.value).subscribe((res: {
       data: string;
       result: number; status: number;

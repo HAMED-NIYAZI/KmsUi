@@ -26,7 +26,7 @@ export class OrganizationComponent implements OnInit {
 
   SaveOrganizationForm():any {
     //console.log(this.OrganizationForm.value);
-    debugger;
+
     
   const res = this.service.Save(this.OrganizationForm.value);
     // const result = this.service.Save(this.OrganizationForm.value).subscribe((res: boolean) => {
@@ -35,8 +35,8 @@ export class OrganizationComponent implements OnInit {
     //   return false;
     //        });
 
-    debugger;
 
+    
    if (res == true) alert("عملیات با موفقیت ثبت شد.");
     else alert("خطا در ثبت عملیات");
 

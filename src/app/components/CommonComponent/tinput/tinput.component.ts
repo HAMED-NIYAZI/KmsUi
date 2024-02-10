@@ -23,7 +23,7 @@ export class TinputComponent implements OnInit {
   ngClassParentDown: string = "parent-down";
 
   constructor() {
-    debugger;
+
     this.isMultiSelectable == false
     this.tree = [
       new TreeClass("حراست", "2AA4696D-4403-4403-4403-01881BB815B6", false,
@@ -118,8 +118,8 @@ export class TinputComponent implements OnInit {
       }
 
     });
-    debugger;
 
+    
     const ch = document.getElementById(id) as HTMLInputElement;
     if (ch.checked == true) { this.FindInTree3(this.tree, id);}  
 

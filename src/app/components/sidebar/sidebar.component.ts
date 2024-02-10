@@ -28,7 +28,7 @@ HomePageSettingImage:string="";
   ngOnInit(): void {
  this.UserFullName=this.accountService.get_User_FullName();
 this.UserOrganizationName=this.accountService.get_HomePage_title();
-this.UserImage=this.apiUrlImage +this.accountService.get_User_ImagePath();
+this.UserImage=this.accountService.get_User_ImagePath() ?  this.apiUrlImage +this.accountService.get_User_ImagePath() : '';
 this.HomePageSettingImage=this.accountService.get_HomePage_ImagePath();
 this.HomePageSettingImage=this.HomePageSettingImage ??  this.apiUrlImage+this.HomePageSettingImage;
   

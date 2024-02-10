@@ -41,11 +41,14 @@
                   </svg></a>
               </div>
               <div class="dropdown main-profile-menu nav nav-item nav-link">
-                <a class="profile-user d-flex" href="#"><img alt="" src="{{UserImage}}"></a>
+                <a class="profile-user d-flex" href="#"><img alt="" [src]="UserImage ? UserImage : 'assets/img/faces/defaultavataruser.png' "></a>
+
+                <!-- <img alt="" [src]="UserProfileModel.imagePath ? apiUrlImage+'/'+UserProfileModel.imagePath :"> -->
+
                 <div class="dropdown-menu">
                   <div class="main-header-profile bg-primary p-3">
                     <div class="d-flex wd-100p">
-                      <div class="main-img-user"><img alt="" src="{{UserImage}}" class=""></div>
+                      <div class="main-img-user"><img alt="" [src]="UserImage ? UserImage : 'assets/img/faces/defaultavataruser.png' " class=""></div>
                       <div class="ms-3 my-auto">
                         <h6>پتی کروزر</h6><span>مدیریت</span>
                       </div>

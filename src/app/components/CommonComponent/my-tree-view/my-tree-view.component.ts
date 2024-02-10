@@ -140,8 +140,8 @@ export class MyTreeViewComponent implements OnInit {
       }
 
     });
-    debugger;
 
+    
     const ch = document.getElementById(id) as HTMLInputElement;
     if (ch.checked == true) { this.FindInTree3(this.tree, id);}  
 

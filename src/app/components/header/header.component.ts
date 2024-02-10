@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
   constructor(private accountService: AccountService, private router: Router) { }
 
   ngOnInit(): void {
-    this.UserImage = this.apiUrlImage + this.accountService.get_User_ImagePath();
+    this.UserImage =this.accountService.get_User_ImagePath()? this.apiUrlImage + this.accountService.get_User_ImagePath(): '' ;
     this.UserOrganizationName=this.accountService.get_HomePage_title();
 
   }
