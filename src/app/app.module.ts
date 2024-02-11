@@ -20,7 +20,7 @@ import { MaterialInstanceModule } from './material.instance.module';
 import { TinputComponent } from './components/CommonComponent/tinput/tinput.component';
 import { OrganizationComponent } from './components/organization/organization.component';
 import { MainContentComponent } from './components/main-content/main-content.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {MatButtonModule} from '@angular/material/button';
 import { ToastrModule } from 'ngx-toastr';
@@ -46,6 +46,7 @@ import { ProfileComponent } from './components/profile/profile.component';
   
    ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

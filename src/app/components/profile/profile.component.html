@@ -22,20 +22,22 @@
                     <div class="pl-0">
                         <div class="main-profile-overview">
                             <div class="main-img-user profile-user">
-                                <img alt="" [src]="UserProfileModel.imagePath ? apiUrlImage+'/'+UserProfileModel.imagePath :'assets/img/faces/defaultavataruser.png'"><a class="fas fa-camera profile-edit"></a>
+                                <img alt=""
+                                    [src]="UserProfileModel.imagePath ? apiUrlImage+UserProfileModel.imagePath :'assets/img/faces/defaultavataruser.png'"><a
+                                    class="fas fa-camera profile-edit"></a>
                             </div>
                             <div class="d-flex justify-content-between mg-b-20">
                                 <div>
                                     <h5 class="main-profile-name"> {{UserProfileModel.firstName+ ' '+
                                         UserProfileModel.lastName}} </h5>
-                                    <p *ngIf="UserProfileModel.positionName" class="main-profile-name-text"> موقیت شغلی
+                                    <p   class="main-profile-name-text"> موقیت شغلی
                                         : {{UserProfileModel.positionName}} </p>
-                                    <p *ngIf="UserProfileModel.gradeName" class="main-profile-name-text"> آخرین مدرک
+                                    <p   class="main-profile-name-text"> آخرین مدرک
                                         تحصیلی: {{UserProfileModel.gradeName}} </p>
 
                                 </div>
                             </div>
-                            <div *ngIf="UserProfileModel.about">
+                            <div>
                                 <h6>درباره من : </h6>
                                 <div class="main-profile-bio">
                                     {{UserProfileModel.about}}
@@ -56,7 +58,7 @@
                                     <h6 class="text-small text-muted mb-0">تعداد مقاله</h6>
                                     <h5 style="margin-right:13px ;margin-top: 8px;">48</h5>
                                 </div>
-          
+
                             </div>
                             <hr class="mg-y-30">
 
@@ -73,11 +75,11 @@
                                     <h6 class="text-small text-muted mb-0">تعداد مقاله</h6>
                                     <h5 style="margin-right:13px ;margin-top: 8px;">48</h5>
                                 </div>
-          
+
                             </div>
                             <hr class="mg-y-30">
-      
-                             <h6>مهارت ها</h6>
+
+                            <h6>مهارت ها</h6>
                             <div class="skill-bar mb-4 clearfix mt-3">
                                 <span>HTML5 / CSS3</span>
                                 <div class="progress mt-2">
@@ -114,13 +116,14 @@
                     </div>
                 </div>
             </div>
-            <div *ngIf="UserProfileModel.phone || UserProfileModel.email || UserProfileModel.address" class="card mg-b-20">
+            <div 
+                class="card mg-b-20">
                 <div class="card-body">
                     <div class="main-content-label tx-13 mg-b-25">
                         اطلاعات تماس من
                     </div>
                     <div class="main-profile-contact-list">
-                        <div *ngIf="UserProfileModel.phone" class="media">
+                        <div   class="media">
                             <div class="media-icon bg-primary-transparent text-primary">
                                 <i class="icon ion-md-phone-portrait"></i>
                             </div>
@@ -132,7 +135,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div *ngIf="UserProfileModel.email" class="media">
+                        <div   class="media">
                             <div class="media-icon bg-success-transparent text-success">
                                 <i class="icon ion-logo-slack"></i>
                             </div>
@@ -143,7 +146,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div *ngIf="UserProfileModel.address" class="media">
+                        <div  class="media">
                             <div class="media-icon bg-info-transparent text-info">
                                 <i class="icon ion-md-locate"></i>
                             </div>
@@ -161,110 +164,198 @@
 
         <!-- Col -->
         <div class="col-lg-8">
+
+
             <div class="card">
                 <div class="card-body">
-                    <div class="mb-4 main-content-label">اطلاعات شخصی</div>
-                    <form class="form-horizontal">
 
- 
-                        <div class="form-group ">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label class="form-label">نام </label>
-                                </div>
-                                <div class="col-md-9">
-                                    <input type="text" class="form-control" placeholder="نام کوچک" value="پتی">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group ">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label class="form-label">نام خانوادگی</label>
-                                </div>
-                                <div class="col-md-9">
-                                    <input type="text" class="form-control" placeholder="نام خانوادگی" value="پچون">
+                    <div class="example">
+                        <div class="panel panel-primary tabs-style-1">
+                            <div class=" tab-menu-heading">
+                                <div class="tabs-menu1">
+                                    <!-- Tabs -->
+                                    <ul class="nav panel-tabs main-nav-line">
+                                        <li class="nav-item"><a href="#tab1" class="nav-link active"
+                                                data-bs-toggle="tab"> ویرایش اطلاعات شخصی </a></li>
+                                        <li class="nav-item"><a href="#tab2" class="nav-link" data-bs-toggle="tab">تغییر
+                                                کلمه عبور </a></li>
+                                        <li class="nav-item"><a href="#tab3" class="nav-link" data-bs-toggle="tab">برگه
+                                                03</a></li>
+                                    </ul>
                                 </div>
                             </div>
-                        </div>
- 
-                         <div class="form-group ">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label class="form-label">ایمیل  </label>
-                                </div>
-                                <div class="col-md-9">
-                                    <input type="text" class="form-control" placeholder="پست الکترونیک"
-                                        value="info@Valex.in">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group ">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label class="form-label">سایت اینترنتی</label>
-                                </div>
-                                <div class="col-md-9">
-                                    <input type="text" class="form-control" placeholder="سایت اینترنتی"
-                                        value="info.com">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group ">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label class="form-label">تلفن</label>
-                                </div>
-                                <div class="col-md-9">
-                                    <input type="text" class="form-control" placeholder="شماره تلفن"
-                                        value="245 354 654">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group ">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label class="form-label">نشانی</label>
-                                </div>
-                                <div class="col-md-9">
-                                    <textarea class="form-control" name="example-textarea-input" rows="2"
-                                        placeholder="نشانی">San Francisco, CA</textarea>
-                                </div>
-                            </div>
-                        </div>
-                         <div class="form-group ">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label class="form-label">درباره من</label>
-                                </div>
-                                <div class="col-md-9">
-                                    <textarea class="form-control" name="example-textarea-input" rows="4"
-                                        placeholder="">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد
-                                                </textarea>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mb-4 main-content-label">برخی تنظیمات   </div>
-                        <div class="form-group mb-0">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label class="form-label">کاربر تأیید شده</label>
-                                </div>
-                                <div class="col-md-9">
-                                    <div class="custom-controls-stacked">
-                                        <label class="ckbox mg-b-10"><input checked="" type="checkbox"><span> قبول کنید
-                                                ایمیل های اطلاع رسانی پست یا صفحه را دریافت کنید</span></label>
-                                        <label class="ckbox"><input checked="" type="checkbox"><span> قبول کنید نامه
-                                                الکترونیکی ارسال شده به چندین گیرنده دریافت کنید</span></label>
+                            <div class="panel-body tabs-menu-body main-content-body-right border-top-0 border">
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="tab1">
+
+                                        <div class="mb-4 main-content-label">اطلاعات شخصی</div>
+                                        <form [formGroup]="ProfileForm" class="form-horizontal">
+
+
+                                            <div class="form-group ">
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <label class="form-label">نام </label>
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <input type="text" class="form-control" placeholder="نام"
+                                                            formControlName="FirstName">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group ">
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <label class="form-label">نام خانوادگی</label>
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <input type="text" class="form-control"
+                                                            placeholder="نام خانوادگی" formControlName="LastName">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group ">
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <label class="form-label">ایمیل </label>
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <input type="text" class="form-control"
+                                                            placeholder="پست الکترونیک" formControlName="Email">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group ">
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <label class="form-label">تلفن</label>
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <input type="text" class="form-control" placeholder="شماره تلفن"
+                                                            formControlName="Phone">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group ">
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <label class="form-label">نشانی</label>
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <textarea class="form-control" name="example-textarea-input"
+                                                            rows="5" placeholder="نشانی"
+                                                            formControlName="Address"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group ">
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <label class="form-label">درباره من</label>
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <textarea class="form-control" name="example-textarea-input"
+                                                            rows="5" placeholder="" formControlName="About"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- <div class="mb-4 main-content-label">برخی تنظیمات   </div>
+                                            <div class="form-group mb-0">
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <label class="form-label">کاربر تأیید شده</label>
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <div class="custom-controls-stacked">
+                                                            <label class="ckbox mg-b-10"><input checked="" type="checkbox"><span> قبول کنید
+                                                                    ایمیل های اطلاع رسانی پست یا صفحه را دریافت کنید</span></label>
+                                                            <label class="ckbox"><input checked="" type="checkbox"><span> قبول کنید نامه
+                                                                    الکترونیکی ارسال شده به چندین گیرنده دریافت کنید</span></label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div> -->
+                                        </form>
+                                        <div class="card-footer text-left">
+                                            <button type="submit" class="btn btn-primary waves-effect waves-light">
+                                                ذخیره </button>
+                                        </div>
+
+                                    </div>
+
+
+
+                                    <div class="tab-pane" id="tab2">
+                                        <div class="mb-4 main-content-label">تغییر کلمه عبور </div>
+                                        <form [formGroup]="ProfileChangePasswordByUserForm" class="form-horizontal">
+
+
+                                            <div class="form-group ">
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <label class="form-label">کلمه عبور جاری </label>
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <input type="password" class="form-control" placeholder="کلمه عبور جاری را وارد کنید" formControlName="OldPassword">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group ">
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <label class="form-label">کلمه عبور جدید  </label>
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <input type="password" class="form-control" placeholder="کلمه عبور جدید را وارد نمایید  " formControlName="NewPassword">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group ">
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <label class="form-label">تکرار کلمه عبور جدید</label>
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <input type="password" class="form-control" placeholder="تکرار کلمه عبور جدید را وارد نمایید" formControlName="ConfirmPassword">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+
+                                        </form>
+                                        <div class="card-footer text-left">
+                                            <button type="submit" class="btn btn-primary waves-effect waves-light" (click)="ChangePasswordByUser()"> ذخیره  </button>
+                                        </div>
+
+                                    </div>
+
+
+
+
+                                    <div class="tab-pane" id="tab3">
+                                        <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از
+                                            طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که
+                                            لازم است</p>
+                                        <p class="mb-0">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                                            استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و
+                                            سطرآنچنان که لازم است سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
+                                            گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم
+                                            است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود
+                                            ابزارهای کاربردی می باشد</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </form>
+                    </div>
+
+
+
                 </div>
-                <div class="card-footer text-left">
-                    <button type="submit" class="btn btn-primary waves-effect waves-light"> ذخیره  </button>
-                </div>
+
             </div>
         </div>
         <!-- /Col -->

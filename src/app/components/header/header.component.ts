@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, OnInit, Output } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { AccountService } from 'src/app/services/Account/account.service';
 import { environment } from 'src/environments/environment';
@@ -17,11 +17,12 @@ export class HeaderComponent implements OnInit {
   UserOrganizationName:string="";
 
 
-  constructor(private accountService: AccountService, private router: Router) { }
+  constructor(private accountService: AccountService, private router: Router,private cdRef: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.UserImage =this.accountService.get_User_ImagePath()? this.apiUrlImage + this.accountService.get_User_ImagePath(): '' ;
     this.UserOrganizationName=this.accountService.get_HomePage_title();
+    this.cdRef.detectChanges(); // Manually trigger change detection
 
   }
   toggleSidebar() {
@@ -30,7 +31,7 @@ export class HeaderComponent implements OnInit {
 
 
   Logout() {
-    this.accountService.clearLocalStorage();
+    this.accountService.logOut();
     this.router.navigate(['/login']);
   }
 

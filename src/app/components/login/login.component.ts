@@ -70,6 +70,7 @@ export class LoginComponent implements OnInit {
 
         this.accountService.saveClientInfo(res.data);
         this.accountService.saveClientToken(res.data);
+        this.accountService.saveClientLoginTime();
   
         this.router.navigate([''])
         this.toastr.success('ورود موفق به سامانه', '');

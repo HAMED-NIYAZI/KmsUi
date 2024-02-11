@@ -12,6 +12,7 @@ import { ProfileComponent } from './components/profile/profile.component';
  
 const routes: Routes = [
  // { path: '', canActivate: [AuthGuard], component: MainlayoutComponent, pathMatch: 'full', },
+ // { path: '', redirectTo: '/login', pathMatch: 'full' } ,
   { path: 'login', component: LoginComponent },
   { path: 'register-request', component: RegisterRequestComponent },
  
@@ -27,7 +28,6 @@ const routes: Routes = [
 
     ],
   },
-
   { path: '**', canActivate: [AuthGuard],   component: NotfoundpageComponent },
 
 
@@ -39,6 +39,36 @@ const routes: Routes = [
 
 ];
 
+
+ /*
+const routes: Routes = [
+  // { path: '', canActivate: [AuthGuard], component: MainlayoutComponent, pathMatch: 'full', },
+   { path: '', redirectTo: '/login', pathMatch: 'full' } ,
+   { path: 'login', component: LoginComponent },
+   { path: 'register-request', component: RegisterRequestComponent },
+  
+   
+   //Main Page Route
+   { path: '', canActivate: [AuthGuard], component: MainlayoutComponent, data: { title: 'صفحه اصلی' },
+     children: [
+       { path: '', component: MainContentComponent },
+       { path: 'home', component: MainContentComponent },
+       { path: 'organization', component: OrganizationComponent },
+       { path: 'profile', component: ProfileComponent },
+ 
+ 
+     ],
+   },
+   { path: '**', canActivate: [AuthGuard],   component: NotfoundpageComponent },
+ 
+ 
+ 
+   // { path: 'login', component: LoginComponent },
+   // { path: '', component: MainlayoutComponent, pathMatch: 'full' },
+   // { path: 'home', redirectTo: '' },
+ 
+ 
+ ];*/
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

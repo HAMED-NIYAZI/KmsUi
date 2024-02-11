@@ -14,16 +14,16 @@ export class AccountService {
 
   isUserLoginAccordingToLocalStorage(): boolean {
     const token = localStorage.getItem('token');
-    const clientinfo = localStorage.getItem('client-info');
+    //  const clientinfo = localStorage.getItem('client-info');
 
-    if (clientinfo == '' || clientinfo == null || clientinfo == undefined ||
+    if (/*clientinfo == '' || clientinfo == null || clientinfo == undefined ||*/
       token == '' || token == null || token == undefined) {
       localStorage.clear();
       return false;
     }
     return true;
   }
-  
+
 
   saveHomePageSettingsInfo(homePageSettingsInfo: any) {
 
@@ -33,6 +33,22 @@ export class AccountService {
   saveClientToken(clientinfo: any) {
     localStorage.setItem('token', clientinfo.token);
   }
+
+  saveClientLoginTime() {
+    const date=(new Date()).toString();
+    localStorage.setItem('login-time', date);
+  }
+
+  // getClientLoginTime():string {
+  //  return (localStorage.getItem('login-time')==null || localStorage.getItem('login-time')=='') ? localStorage.getItem('login-time') : '';
+  // }
+
+  getClientLoginTime(): string {
+    const loginTime = localStorage.getItem('login-time');
+    return loginTime !== null && loginTime !== '' ? loginTime : '';
+  }
+
+  
 
   saveClientInfo(clientinfo: any) {
     localStorage.setItem('client-info', JSON.stringify(clientinfo));
@@ -47,8 +63,8 @@ export class AccountService {
     localStorage.removeItem('token');
   }
 
-  getClientInfoFromLocalStorage():any{
-return localStorage.getItem('client-info');
+  getClientInfoFromLocalStorage(): any {
+    return localStorage.getItem('client-info');
   }
 
 
@@ -59,48 +75,50 @@ return localStorage.getItem('client-info');
 
     return this.http.post<any>(this.apiUrl + 'Account/Login', body, { 'headers': headers });
   }
+  logOut(){
+  this.clearLocalStorage();
+}
 
 
-
-  get_User_FullName(){
+  get_User_FullName() {
     const info = this.get_ClientInfo();
-    const info1:string=info.firstName+' '+info.lastName;
+    const info1: string = info.firstName + ' ' + info.lastName;
     return info1
   }
 
-  get_User_ImagePath(){
+  get_User_ImagePath() {
     const info = this.get_ClientInfo();
-    const info1:string=info.imagePath;
+    const info1: string = info.imagePath;
     return info1
   }
 
-  get_ClientInfo(){
-    return  JSON.parse(localStorage.getItem('client-info') || '{}');
+  get_ClientInfo() {
+    return JSON.parse(localStorage.getItem('client-info') || '{}');
   }
 
-  get_HomePage_title(){
+  get_HomePage_title() {
     const info = this.get_HomePageSetting();
-    const info1:string=info.title;
+    const info1: string = info.title;
     return info1
   }
 
-  get_HomePage_ImagePath(){
+  get_HomePage_ImagePath() {
     const info = this.get_HomePageSetting();
-    const info1:string=info.imagePath;
+    const info1: string = info.imagePath;
     return info1
   }
-  get_HomePageSetting(){
-   return JSON.parse(localStorage.getItem('home-page-settings-Info') || '{}');
+  get_HomePageSetting() {
+    return JSON.parse(localStorage.getItem('home-page-settings-Info') || '{}');
   }
 
-  get_Bearer_Token(){
-    const token ='Bearer '+ localStorage.getItem('token');
-     return token;
+  get_Bearer_Token() {
+    const token = 'Bearer ' + localStorage.getItem('token');
+    return token;
   }
 
-  get_User_Id(){
+  get_User_Id() {
     const info = this.get_ClientInfo();
-    const info1:string=info.userId;
+    const info1: string = info.userId;
     return info1
   }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, DebugElement, OnInit } from '@angular/core';
 import { AccountService } from 'src/app/services/Account/account.service';
   import { environment } from 'src/environments/environment';
  
@@ -19,20 +19,21 @@ HomePageSettingImage:string="";
 
  
 
-
-  constructor(private accountService:AccountService) {
+  constructor(private accountService:AccountService,private cdRef: ChangeDetectorRef ) {
  
 
    }
 
   ngOnInit(): void {
- this.UserFullName=this.accountService.get_User_FullName();
+  this.UserFullName=this.accountService.get_User_FullName();
+ 
 this.UserOrganizationName=this.accountService.get_HomePage_title();
 this.UserImage=this.accountService.get_User_ImagePath() ?  this.apiUrlImage +this.accountService.get_User_ImagePath() : '';
 this.HomePageSettingImage=this.accountService.get_HomePage_ImagePath();
-this.HomePageSettingImage=this.HomePageSettingImage ??  this.apiUrlImage+this.HomePageSettingImage;
-  
- }
+ this.HomePageSettingImage=this.HomePageSettingImage=='' ? '': this.apiUrlImage+this.HomePageSettingImage;
+ this.cdRef.detectChanges(); // Manually trigger change detection
+
+  }
  
 
 show(){
