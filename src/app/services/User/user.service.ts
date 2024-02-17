@@ -13,8 +13,6 @@ export class UserService {
   constructor(private accountService: AccountService ,private http:HttpClient) { }
 
   GetUser(Id : string) :Observable<any>{
-    debugger;
-
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': this.accountService.get_Bearer_Token()
@@ -40,5 +38,22 @@ ChangePasswordByUser(model: any): Observable<any> {
   return this.http.post<any>(this.apiUrl + 'User/ChangePasswordByUser', body, { headers: headers });
 }
 
+EditUserProfile(model: any): Observable<any> {
+  const headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': this.accountService.get_Bearer_Token()
+  });
+    const body = JSON.stringify(model);
+
+  return this.http.post<any>(this.apiUrl + 'User/EditUserProfile', body, { headers: headers });
+}
+
+
+uploadAvatarImage(file: File,id :string): Observable<any> {
+  const formData: FormData = new FormData();
+  formData.append('image', file, file.name);
+
+  return this.http.post(this.apiUrl + 'User/EditUserProfileImage?Id='+id, formData);
+}
 
 }
