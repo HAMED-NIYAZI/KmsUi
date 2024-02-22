@@ -182,51 +182,25 @@ export class ProfileComponent implements OnInit {
 
   uploadAvatarImage(event: any){
 
-
+debugger;
     const file: File = event.target.files[0];
     if (file) {
-
-    this.userService.uploadAvatarImage(file,this.accountService.get_User_Id()).subscribe((res: {
-      data: string;
-      result: number; status: number;
-    }): void => {
-      debugger;
-      if (res.result == 0) {
-        
-        this.toastr.success(' عملیات با موفقیت انجام شد. ');
-
-        //Success
-        return;
-      }
-
-      if (res.result == 1) {
-
-        //failed
-        return;
-      }
-
-      if (res.result == 3) {
-        //ServerError
-        return;
-      }
-
-      if (res.result == 4) {
-        //ExeptionError
-        return;
-      }
-
-
-      if (res.result == 5) {
-        //NotFound
-        this.toastr.error('     ', '     ');
-
-        return;
-      }
-
-    }, (error: any) => {
-      //-----
-    });
+      this.userService.uploadAvatarImage(file, this.accountService.get_User_Id()).subscribe({
+        next: (res: any) => {
+          this.accountService.saveClientInfo(res.data);
+          this.toastr.success('عملیات  با  موفقیت  انجام  شد ', '');
+          debugger;
+        },
+        error: (err) => {
+          console.error(err);
+          debugger;
+        }
+      });
+      
     }
+
+
+ 
   }
 
   triggerFileInputClick(event: Event) {
