@@ -20,7 +20,13 @@ export class HeaderComponent implements OnInit {
   constructor(private accountService: AccountService, private router: Router,private cdRef: ChangeDetectorRef) { }
 
   ngOnInit(): void {
-    this.UserImage =this.accountService.get_User_ImagePath()? this.apiUrlImage + this.accountService.get_User_ImagePath(): '' ;
+
+    this.accountService.userImage.subscribe(userImage => {
+      this.UserImage = userImage;
+    });
+
+   // this.UserImage =this.accountService.get_User_ImagePath()? this.apiUrlImage + this.accountService.get_User_ImagePath(): '' ;
+    this.UserImage =this.UserImage ? this.apiUrlImage + this.UserImage : '' ;
     this.UserOrganizationName=this.accountService.get_HomePage_title();
     this.cdRef.detectChanges(); // Manually trigger change detection
 

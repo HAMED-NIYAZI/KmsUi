@@ -33,7 +33,8 @@ export class ProfileComponent implements OnInit {
   
           this.UserProfileModel = res.data;
   
-  
+           
+
           this.ProfileForm = new FormGroup({
             Id: new FormControl(this.accountService.get_User_Id(), [Validators.required, Validators.minLength(36), Validators.maxLength(36),]),
             FirstName: new FormControl(res.data.firstName, [Validators.required, Validators.minLength(1), Validators.maxLength(50),]),
@@ -137,12 +138,15 @@ export class ProfileComponent implements OnInit {
 
 
     this.userService.EditUserProfile(this.ProfileForm.value).subscribe((res: {
-      data: string;
+      data: any;
       result: number; status: number;
     }): void => {
       debugger;
       if (res.result == 0) {
         this.UserProfileModel = res.data;
+        console.log(res.data.firstName+' '+res.data.lastName);
+        this.accountService.setUserFullName(res.data.firstName+' '+res.data.lastName);
+        this.accountService.setUserImage(res.data.imagePath);
         this.toastr.success(' عملیات با موفقیت انجام شد. ');
 
         //Success
@@ -188,6 +192,8 @@ debugger;
       this.userService.uploadAvatarImage(file, this.accountService.get_User_Id()).subscribe({
         next: (res: any) => {
           this.accountService.saveClientInfo(res.data);
+          this.accountService.setUserImage(res.data.imagePath);
+
           this.toastr.success('عملیات  با  موفقیت  انجام  شد ', '');
           debugger;
         },

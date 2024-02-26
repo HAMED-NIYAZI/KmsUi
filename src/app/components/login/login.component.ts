@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
   Login(): any {
 
     this.accountService.Login(this.loginForm.value).subscribe((res: {
-      data: string;
+      data: any;
       result: number; status: number;
     }): void => {
       if (res.result == 0) {
@@ -71,7 +71,11 @@ export class LoginComponent implements OnInit {
         this.accountService.saveClientInfo(res.data);
         this.accountService.saveClientToken(res.data);
         this.accountService.saveClientLoginTime();
-  
+
+        this.accountService.setUserFullName(res.data.firstName+' '+res.data.lastName);
+        this.accountService.setUserImage(res.data.imagePath);
+
+        
         this.router.navigate([''])
         this.toastr.success('ورود موفق به سامانه', '');
         //Success

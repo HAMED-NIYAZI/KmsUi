@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -10,7 +10,23 @@ export class AccountService {
   apiUrl = environment.apiUrl;
   private readonly default_headers: any = { 'accept': '*/*', 'Content-Type': 'application/json' };
 
+  private userFullNameSubject = new BehaviorSubject<string>('');
+  userFullName = this.userFullNameSubject.asObservable();
+  
+  private userImageeSubject = new BehaviorSubject<string>('');
+  userImage = this.userImageeSubject.asObservable();
+
   constructor(private http: HttpClient) { }
+
+
+  setUserFullName(userFullName: string) {
+    this.userFullNameSubject.next(userFullName);
+  }
+
+  setUserImage(userImage: string) {
+    this.userImageeSubject.next(userImage);
+  }
+
 
   isUserLoginAccordingToLocalStorage(): boolean {
     const token = localStorage.getItem('token');
@@ -38,11 +54,7 @@ export class AccountService {
     const date=(new Date()).toString();
     localStorage.setItem('login-time', date);
   }
-
-  // getClientLoginTime():string {
-  //  return (localStorage.getItem('login-time')==null || localStorage.getItem('login-time')=='') ? localStorage.getItem('login-time') : '';
-  // }
-
+ 
   getClientLoginTime(): string {
     const loginTime = localStorage.getItem('login-time');
     return loginTime !== null && loginTime !== '' ? loginTime : '';
